@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def new
+    redirect_to user_url(current_user) if !!current_user
     @user = User.new
     render :new
   end

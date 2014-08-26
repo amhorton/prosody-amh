@@ -6,13 +6,25 @@
     Title
     <input type="text" name="article[title]" value="<%= @article.title %>">
   </label>
-
+  
   <label>
-    Author ID
-    <input type="text" name="article[author_id]" value="<%= @article.author_id %>">
+    Year of publication
+    <input type="number" name="article[year]" value="<%= @article.year %>">
   </label>
 
-  <br>
+  <hr>
+
+  <label>
+    Author First Name
+    <input type="text" name="author[first_name]" value="<%= @author.first_name %>">
+  </label>
+
+  <label>
+    Author Last Name
+    <input type="text" name="author[last_name]" value="<%= @author.last_name %>">
+  </label>
+
+  <hr>
 
   <label>
     Article text
