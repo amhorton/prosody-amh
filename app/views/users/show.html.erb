@@ -1,3 +1,16 @@
 <h2><%= @user.username %></h2>
 
-DOPE
+<label>
+  Uploads by this user:
+  <ul>
+    <% @user.articles.each do |article| %>
+    <li>
+      <a href="<%= article_url(article) %>">
+        <%= article.title %>
+      </a> by <a href="<%= author_url(article.author) %>">
+        <%= article.author.name %>
+      </a>
+    </li>
+    <% end %>
+  </ul>
+</label>

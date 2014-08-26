@@ -1,9 +1,51 @@
+<style>
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+section.main {
+  border: 3px solid green;
+  display: block;
+  width: 100%;
+}
+
+div.article-text {
+  border: 3px solid red;
+  width: 760px;
+  padding: 20px;
+}
+
+div.annotations {
+  border: 3px solid blue;
+  width: 300px;
+  float: right;
+}
+
+</style>
+
 <h2><%= @article.title %></h2>
 <br>
 <h3>
   By <a href="<%= author_url(@article.author) %>">
-    <%= @article.author.name %>
-  </a>, <%= @article.year %>
+    <%= @article.author.name %></a>, <%= @article.year %>
 </h3>
 <br>
-<%= @article.text %>
+
+<section class="main group">
+  <div class="article-text">
+    <% lines = @article.text.split("\r\n") %>
+
+    <% lines.each do |line| %>
+    <%= line %><br>
+    <% end %>
+  </div>
+  <div class="annotations">
+    ANNOTATIONS HERE SOON
+  </div>
+</section>
+
+<hr>
+<a href="#top">Back to top</a>
