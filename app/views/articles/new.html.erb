@@ -1,0 +1,25 @@
+<h2>New article</h2>
+
+<form action="<%= articles_url %>" method="POST">
+  <%= auth_token %>
+  <label>
+    Title
+    <input type="text" name="article[title]" value="<%= @article.title %>">
+  </label>
+
+  <label>
+    Author ID
+    <input type="text" name="article[author_id]" value="<%= @article.author_id %>">
+  </label>
+
+  <br>
+
+  <label>
+    Article text
+    <br>
+    <textarea name="article[text]"></textarea>
+  </label>
+
+  <button>Submit</button>
+
+</form>

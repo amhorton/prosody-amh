@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prosody</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if !!current_user %>
+  Signed in as: <a href="<%= user_url(current_user) %>">
+    <%= current_user.username %>
+  </a>
+
+  <form action="<%= session_url %>" method="POST">
+    <%= auth_token %>
+    <input type="hidden" name="_method" value="DELETE">
+    <button>Sign out</button>
+  </form>
+
+  <a href="<%= new_article_url %>">Create a new article</a>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
