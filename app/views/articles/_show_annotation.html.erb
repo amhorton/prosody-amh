@@ -6,3 +6,9 @@
 <% if annotation.image %>
   <%= image_tag annotation.image.url(:medium) %>
 <% end %>
+
+<%= render 'new_comment', annotation: annotation %>
+
+<% annotation.comments.each do |comment| %>
+  <%= render 'show_comment', comment: comment %>
+<% end %>

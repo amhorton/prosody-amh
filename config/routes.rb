@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :authors
   resources :annotations
   resources :follows
+  resources :comments
 
   get '/home', to: 'users#home', as: 'home'
   delete '/follows', to: 'follows#destroy', as: 'destroy_follow'

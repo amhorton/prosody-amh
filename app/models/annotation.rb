@@ -6,6 +6,8 @@ class Annotation < ActiveRecord::Base
 
   belongs_to(:user)
   belongs_to(:article)
+  
+  has_many(:comments)
 
   validates :text, :user, :article, :start, :end, presence: true
 

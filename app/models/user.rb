@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many(:articles)
   has_many(:annotations)
+  has_many(:comments)
 
   has_many(
     :out_follows,
@@ -19,7 +20,6 @@ class User < ActiveRecord::Base
   )
 
   has_many(:followers, through: :in_follows, source: :follower)
-
   has_many(:followed_users, through: :out_follows, source: :followed)
 
   validates :username, :password_digest, presence: true
