@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resource :session
   resources :articles
   resources :authors
+  resources :annotations
+  resources :follows
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
