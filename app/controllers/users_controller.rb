@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def home
+    @user = current_user
+    render :home
+  end
+
   def new
     redirect_to user_url(current_user) if !!current_user
     @user = User.new
@@ -11,7 +16,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in_user(@user)
-      redirect_to user_url(@user)
+      redirect_to home_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new

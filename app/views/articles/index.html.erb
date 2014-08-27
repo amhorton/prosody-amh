@@ -1,0 +1,16 @@
+<h1>All Articles</h1>
+<ul>
+  <% @articles.each do |article| %>
+
+    <li>
+      <a href="<%= article_url(article) %>">
+        <%= article.title %>
+      </a> by
+      <a href="<%= author_url(article.author) %>">
+        <%= article.author.name %>
+      </a> (<%= article.annotations.length %> annotations)
+    </li>
+
+
+  <% end %>
+</ul>

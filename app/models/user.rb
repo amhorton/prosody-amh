@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
-  #Authentication
+  #authentication
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
@@ -63,6 +63,16 @@ class User < ActiveRecord::Base
 
   def recent_events
     self.events[0..5]
+  end
+
+  def followed_activity
+    events = []
+
+    self.followed_users.each do |followed_user|
+      events += followed_user.events
+    end
+
+    events.sort_by { |event| event.created_at }
   end
 
   private

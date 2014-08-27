@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
     if @user
       sign_in_user(@user)
-      redirect_to user_url(@user)
+      redirect_to home_url
     else
       flash.now[:errors] = ["cannot find user with those credentials"]
       render :new

@@ -1,5 +1,10 @@
 class ArticlesController < ApplicationController
   before_filter :signed_in_check, only: [:new]
+  
+  def index
+    @articles = Article.all
+    render :index
+  end
 
   def new
     @article = Article.new
