@@ -1,7 +1,13 @@
 <h2><%= @user.username %></h2>
 
 <%= image_tag @user.avatar.url(:medium) %>
-
+<% if !!current_user %>
+  <% if current_user.can_follow?(@user) %>
+    <%= render 'follow' %>
+  <% elsif current_user.can_unfollow?(@user) %>
+    <%= render 'unfollow' %>
+  <% end %>
+<% end %>
 
 <hr>
 

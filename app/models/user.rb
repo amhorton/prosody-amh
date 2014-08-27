@@ -75,6 +75,14 @@ class User < ActiveRecord::Base
     events.sort_by { |event| event.created_at }
   end
 
+  def can_follow?(user)
+    !(user == self || self.followed_users.include?(user))
+  end
+
+  def can_unfollow?(user)
+    self.followed_users.include?(user)
+  end
+
   private
 
   def ensure_session_token

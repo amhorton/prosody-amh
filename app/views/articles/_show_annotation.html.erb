@@ -1,7 +1,8 @@
 <h3><%= @article.text[(annotation.start)..(annotation.end)] %></h3>
 <hr>
 <%= annotation.text %>
-<small>-- <%= annotation.user.username %></small>
+--<a href="<%= user_url(annotation.user) %>"><small><%= annotation.user.username %></small></a>
+
 <% if annotation.image %>
   <%= image_tag annotation.image.url(:medium) %>
 <% end %>

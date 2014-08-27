@@ -1,0 +1,6 @@
+<form action="<%= follows_url %>" method="POST">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="DELETE">
+<input type="hidden" name="follow[followed_id]" value="<%= @user.id %>">
+<button>Unfollow <%= @user.username %></button>
+</form>

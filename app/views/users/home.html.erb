@@ -31,3 +31,16 @@
     <% end %>
   </ul>
 <% end %>
+
+<h3>Activity from users you follow</h3>
+<% if @user.followed_activity.empty? %>
+  <i>Nothing to see here...</i>
+<% else %>
+  <ul>
+    <% @user.followed_activity.each do |event| %>
+      <li>
+        <%= event.summary %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

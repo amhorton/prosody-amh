@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :authors
   resources :annotations
   resources :follows
-  
+
   get '/home', to: 'users#home', as: 'home'
+  delete '/follows', to: 'follows#destroy', as: 'destroy_follow'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

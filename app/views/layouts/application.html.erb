@@ -8,10 +8,14 @@
 </head>
 <body>
 
+  <h1>Prosody</h1>
+
+  <hr>
+
 <% if !!current_user %>
-  Signed in as: <a href="<%= user_url(current_user) %>">
-    <%= current_user.username %>
-  </a>
+  Signed in as: <%= current_user.username %> |
+  <a href="<%= user_url(current_user) %>">Profile</a> |
+  <a href="<%= home_url %>">Home</a>
 
   <form action="<%= session_url %>" method="POST">
     <%= auth_token %>
