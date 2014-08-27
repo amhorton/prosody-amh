@@ -1,0 +1,7 @@
+<h3><%= @article.text[(annotation.start)..(annotation.end)] %></h3>
+<hr>
+<%= annotation.text %>
+<small>-- <%= annotation.user.username %></small>
+<% if annotation.image %>
+  <%= image_tag annotation.image.url(:medium) %>
+<% end %>

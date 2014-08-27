@@ -1,21 +1,21 @@
 class AnnotationsController < ApplicationController
-  
+
   def create
-    @annotation = Annotation.new(annotation_params)
-    
-    if @annotation.save
-    
+    @annotation = current_user.annotations.new(annotation_params)
+
+    redirect_to article_url(@annotation.article) if @annotation.save
+
   end
-  
+
   def destroy
-    
+
   end
-  
+
   private
-  
+
   def annotation_params
-    params.require(:annotation).permit(:start, :end, :text, :image)
+    params.require(:annotation).permit(:start, :end, :text, :image, :article_id)
   end
-  
-  
+
+
 end

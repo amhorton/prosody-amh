@@ -6,6 +6,7 @@
   method="POST">
 
   <%= auth_token %>
+
   <input type="hidden" name="annotation[article_id]" value="<%= @article.id %>">
 
   <label>
@@ -27,8 +28,5 @@
     <input type="file" name="annotation[image]">
   </label>
 
-
-
-
-
+  <button>Annotate</button>
 </form>
