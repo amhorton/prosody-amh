@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to user_url(user)
+      redirect_to user_url(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
       render :edit
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :avatar)
   end
 
 end

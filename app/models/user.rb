@@ -1,11 +1,33 @@
 class User < ActiveRecord::Base
-  
+
+  has_attached_file :avatar, :styles => { :medium => "250x250>", :thumb => "100x100>" }, :default_url => "green_:style.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
   has_many(:articles)
-  
+  has_many(:annotations)
+
+  has_many(
+    :out_follows,
+    class_name: "Follow",
+    foreign_key: :follower_id
+  )
+
+  has_many(
+    :in_follows,
+    class_name: "Follow",
+    foreign_key: :followed_id
+  )
+
+  has_many(:followers, through: :in_follows, source: :follower)
+
+  has_many(:followed_users, through: :out_follows, source: :followed)
+
   validates :username, :password_digest, presence: true
-  
+
   before_validation :ensure_session_token
-  
+
+  #Authentication
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
 
@@ -33,12 +55,21 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  #custom methods
+
+  def events
+    (self.annotations + self.articles).sort_by { |event| event.created_at }
+  end
+
+  def recent_events
+    self.events[0..5]
+  end
+
   private
 
   def ensure_session_token
     self.session_token ||= self.class.generate_token
   end
-  
-  
-  
+
+
 end

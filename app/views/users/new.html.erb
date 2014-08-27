@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<form action="<%= users_url %>" method="POST">
+<form action="<%= users_url %>" enctype="multipart/form-data" method="POST">
 
   <%= auth_token %>
 
@@ -9,8 +9,12 @@
     <input type="text" name="user[username]" value="<%= @user.username %>">
   </label>
   <label>
-    Username
+    Password
     <input type="password" name="user[password]">
+  </label>
+  <label>
+    Profile Picture
+    <input type="file" name="user[avatar]">
   </label>
 
   <button>Submit</button>

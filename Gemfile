@@ -23,6 +23,14 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'pg'
 
+gem 'seed_dump'
+
+gem 'paperclip'
+
+gem 'aws-sdk'
+
+gem 'figaro'
+
 group :production do
   gem 'rails_12factor'
 end
