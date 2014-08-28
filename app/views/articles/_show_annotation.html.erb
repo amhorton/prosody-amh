@@ -9,6 +9,6 @@
 
 <%= render 'new_comment', annotation: annotation %>
 
-<% annotation.comments.each do |comment| %>
+<% annotation.sorted_comments.each do |comment| %>
   <%= render 'show_comment', comment: comment %>
 <% end %>

@@ -3,6 +3,7 @@ class Article < ActiveRecord::Base
   belongs_to(:author)
 
   has_many(:annotations)
+  has_many(:votes, as: :votable)
 
   validates :title, presence: true
   validates :title, uniqueness: true
