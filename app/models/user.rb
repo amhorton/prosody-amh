@@ -1,11 +1,16 @@
 class User < ActiveRecord::Base
 
+  #avatar support
+
   has_attached_file :avatar, :styles => { :medium => "250x250>", :thumb => "100x100>" }, :default_url => "green_:style.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
+  #basic associations
 
   has_many(:articles)
   has_many(:annotations)
   has_many(:comments)
+  has_many(:votes)
 
   has_many(
     :out_follows,
@@ -21,6 +26,8 @@ class User < ActiveRecord::Base
 
   has_many(:followers, through: :in_follows, source: :follower)
   has_many(:followed_users, through: :out_follows, source: :followed)
+
+  #validations
 
   validates :username, :password_digest, presence: true
 
@@ -81,6 +88,15 @@ class User < ActiveRecord::Base
 
   def can_unfollow?(user)
     self.followed_users.include?(user)
+  end
+
+  def total_votes
+    votes = 0
+    self.comments.each { |comment| votes += comment.total_votes}
+    self.articles.each { |article| votes += article.total_votes}
+    self.annotations.each { |annotation| votes += annotation.total_votes}
+    
+    votes
   end
 
   private

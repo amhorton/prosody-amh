@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
 
   def home
-    @user = current_user
-    render :home
+
+    if !!current_user
+      @user = current_user
+      render :home
+    else
+      redirect_to articles_url
+    end
+
   end
 
   def new

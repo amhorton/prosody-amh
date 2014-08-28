@@ -3,11 +3,20 @@
 <%= annotation.text %>
 --<a href="<%= user_url(annotation.user) %>"><small><%= annotation.user.username %></small></a>
 
-<% if annotation.image %>
+<% unless annotation.image.url.index("missing") %>
   <%= image_tag annotation.image.url(:medium) %>
 <% end %>
 
+<br>
+<br>
+
+<%= render 'shared/vote_buttons', votable: annotation %>
+
+<br>
+
 <%= render 'new_comment', annotation: annotation %>
+
+<br>
 
 <% annotation.sorted_comments.each do |comment| %>
   <%= render 'show_comment', comment: comment %>

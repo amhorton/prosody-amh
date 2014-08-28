@@ -41,6 +41,9 @@ div.annotation img {
 </style>
 
 <h2><%= @article.title %></h2>
+
+  <%= render 'shared/vote_buttons', votable: @article %>
+
 <br>
 <h3>
   By <a href="<%= author_url(@article.author) %>">

@@ -1,5 +1,9 @@
 <h2><%= @user.username %></h2>
 
+<h3>Total votes: <%= @user.total_votes %></h3>
+
+<br>
+
 <%= image_tag @user.avatar.url(:medium) %>
 
 <% if @user == current_user %>

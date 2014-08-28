@@ -1,0 +1,44 @@
+Total votes: <%= votable.total_votes %>
+
+<br>
+
+<% if votable.can_vote(current_user) %>
+  <form action='<%= votes_url %>' method="POST">
+    <%= auth_token %>
+    <input
+      type="hidden"
+      name="vote[val]"
+      value="1">
+
+    <input
+      type="hidden"
+      name="vote[votable_id]"
+      value="<%= votable.id %>">
+
+    <input
+      type="hidden"
+      name="vote[votable_type]"
+      value="<%= votable.class.to_s %>">
+
+    <button>Upvote</button>
+  </form>
+  <form action='<%= votes_url %>' method="POST">
+    <%= auth_token %>
+    <input
+      type="hidden"
+      name="vote[val]"
+      value="-1">
+
+    <input
+      type="hidden"
+      name="vote[votable_id]"
+      value="<%= votable.id %>">
+
+    <input
+      type="hidden"
+      name="vote[votable_type]"
+      value="<%= votable.class.to_s %>">
+
+    <button>Downvote</button>
+  </form>
+<% end %>

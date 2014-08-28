@@ -1,4 +1,6 @@
 class Annotation < ActiveRecord::Base
+  include Votable
+
   has_attached_file :image, :styles => { :medium => "400x400>" }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   # validate :valid_start, :valid_end
@@ -8,7 +10,6 @@ class Annotation < ActiveRecord::Base
   belongs_to(:article, inverse_of: :annotations)
 
   has_many(:comments)
-  has_many(:votes, as: :votable)
 
   validates :text, :user_id, :article_id, :start, :end, presence: true
 

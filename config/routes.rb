@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'static_pages#root'
+
   resources :users
   resource :session
   resources :articles
@@ -6,9 +8,20 @@ Rails.application.routes.draw do
   resources :annotations
   resources :follows
   resources :comments
+  resources :votes
 
   get '/home', to: 'users#home', as: 'home'
   delete '/follows', to: 'follows#destroy', as: 'destroy_follow'
+
+  namespace :api do
+    resources :annotations, except: [:new, :edit, :index]
+    resources :users, except: [:new, :edit]
+    resources :articles, except: [:new, :edit]
+    resources :authors, except: [:new, :edit]
+    resources :follows, only: [:create, :destroy]
+    resources :comments, except: [:new, :edit, :index]
+    resources :votes, only: [:create, :destroy]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
