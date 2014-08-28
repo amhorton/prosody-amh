@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/home', to: 'users#home', as: 'home'
   delete '/follows', to: 'follows#destroy', as: 'destroy_follow'
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     resources :annotations, except: [:new, :edit, :index]
     resources :users, except: [:new, :edit]
     resources :articles, except: [:new, :edit]
