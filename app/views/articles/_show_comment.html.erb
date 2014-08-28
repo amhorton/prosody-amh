@@ -1,4 +1,9 @@
-<%= comment.user.username %>:
+<big>
+  <strong>
+    <a href="<%= user_url(comment.user) %>"><%= comment.user.username %></a>
+  </strong>
+</big>
+<br>
 <br>
 <%= comment.text %>
 <hr>
