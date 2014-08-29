@@ -18,6 +18,8 @@ Prosody.Views.AnnotationForm = Backbone.View.extend({
       event.preventDefault();
 
       var attrs = $(event.target).serializeJSON();
+      attrs['article_id'] = this.collection.article.id
+      console.log(attrs)
 
       function success () {
       }

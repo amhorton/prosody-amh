@@ -5,7 +5,7 @@
   <%= annotation.escape('text') %>
   --<a><small><%= annotation.user().escape("username") %></small></a>
 
-  <% if (annotation.get('image').indexOf("missing") === -1) { %>
+  <% if (annotation.get('image') && annotation.get('image').indexOf("missing") === -1) { %>
       <img src="<%= annotation.get('image') %>">
   <% } %>
 
