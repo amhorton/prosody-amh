@@ -30,6 +30,13 @@ Prosody.Routers.Router = Backbone.Router.extend({
   },
 
   articleShow: function (id) {
+    console.log("showin'")
+    var article = Prosody.articles.get(id);
+    var view = new Prosody.Views.ArticleShow({
+      model: article
+    });
+
+    this._swapView(view)
 
   },
 

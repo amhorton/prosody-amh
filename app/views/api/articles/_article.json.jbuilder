@@ -1,8 +1,14 @@
-json.(article, :title, :text, :year, :user_id)
+json.extract!(article, :title, :text, :year)
+json.total_votes article.total_votes
 
-json.author do
-  json.first_name = article.author.first_name
-  json.last_name = article.author.last_name
+json.user do
+  json.partial! 'api/users/user', user: article.user
 end
 
-json.array! article.annotations, partial: 'api/annotations/annotation', as: :annotation
+json.author do
+  json.partial! 'api/authors/author', author: article.author
+end
+
+json.annotations article.annotations do |annotation|
+  json.partial! 'api/annotations/annotation', annotation: annotation
+end

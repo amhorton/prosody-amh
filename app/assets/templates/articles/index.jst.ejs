@@ -1,3 +1,10 @@
-<% articles.forEach(function (article) { %>
-  <%= article.get('title') %>
-<% }) %>
+<h1>All articles</h1>
+
+<ul>
+  <% articles.each(function (article) { %>
+    <li>
+      <a href="#articles/<%= article.id %>"><%= article.get('title') %></a>
+      by <a><%= article.author().get('name') %></a>
+    </li>
+  <% }) %>
+</ul>
