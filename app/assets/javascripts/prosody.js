@@ -5,6 +5,8 @@ window.Prosody = {
   Routers: {},
   initialize: function () {
 
+    Prosody.articles = new Prosody.Collections.Articles()
+
     new Prosody.Routers.Router()
     Backbone.history.start()
   }

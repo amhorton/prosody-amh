@@ -36,6 +36,7 @@ div.annotation {
 
 div.annotation img {
   margin: 0 auto;
+  width: 400px;
 }
 
 </style>
@@ -62,23 +63,21 @@ div.annotation img {
 
   <div class="annotations-sidebar">
 
+    <div class="annotation-form">
+
+      
+
+    </div>
+
+    <hr>
+
     <h2>Annotations for this article</h2>
 
-    <% article.annotations().each(function (annotation) {%>
-      <div class="annotation">
+    <div class="annotation-show">
 
-        <h3><% article.get('text').slice(parseInt(article.get('start')), parseInt(article.get('end')) + 1) %></h3>
-        <hr>
-        <%= annotation.get('text') %>
-        --<a><small><%= annotation.user().get("username") %></small></a>
+    </div>
 
-        <% if !(annotation.get('image').indexOf("missing") === -1) { %>
-          <img src="<%= annotation.get('image') %>">
-        <% } %>
 
-      </div>
-
-    <% }) %>
   </div>
 
 </section>

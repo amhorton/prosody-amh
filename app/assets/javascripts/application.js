@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require underscore
+//= require jquery.serializejson
 //= require backbone
 //= require prosody
 //= require_tree ../templates

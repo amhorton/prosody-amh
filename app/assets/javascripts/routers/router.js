@@ -31,7 +31,6 @@ Prosody.Routers.Router = Backbone.Router.extend({
 
   articleShow: function (id) {
     var article = Prosody.articles.get(id);
-    console.log("article in the router", article)
     var view = new Prosody.Views.ArticleShow({
       model: article
     });

@@ -17,6 +17,10 @@ class Annotation < ActiveRecord::Base
     "#{self.created_at}: #{self.user.username} annotated #{self.article.title} with \"#{self.text}\""
   end
 
+  def snippet
+    self.article.text[(self.start)..(self.end)]
+  end
+
   def valid_start
     errors.add(:start, "Can't start annotation there.") if self.start < 0
   end

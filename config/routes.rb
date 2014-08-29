@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   delete '/follows', to: 'follows#destroy', as: 'destroy_follow'
 
   namespace :api, defaults: { format: :json } do
-    resources :annotations, except: [:new, :edit, :index]
     resources :users, except: [:new, :edit]
-    resources :articles, except: [:new, :edit]
+    resources :annotations, except: [:new, :edit, :index]
+    resources :articles, except: [:new, :edit] do
+      resources :annotations, except: [:new, :edit, :index]
+    end
     resources :authors, except: [:new, :edit]
     resources :follows, only: [:create, :destroy]
     resources :comments, except: [:new, :edit, :index]

@@ -1,5 +1,5 @@
 Prosody.Models.Annotation = Backbone.Model.extend({
-  urlRoot: "/api/annotations",
+  
 
   comments: function () {
     if (!this._comments) {
@@ -29,7 +29,7 @@ Prosody.Models.Annotation = Backbone.Model.extend({
       delete response.user;
     }
 
-    return response
+    return response;
   }
 
 })

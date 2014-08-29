@@ -2,6 +2,7 @@ class Api::AnnotationsController < ApplicationController
 
   def create
     @annotation = current_user.annotations.new(annotation_params)
+    @annotation.article_id = params[:article_id]
 
     if @annotation.save
       render json: @annotation
