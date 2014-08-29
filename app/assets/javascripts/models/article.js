@@ -17,14 +17,14 @@ Prosody.Models.Article = Backbone.Model.extend({
     return this._author;
 
   },
-  
+
   user: function () {
     if (!this._user) {
       this._user = new Prosody.Models.User();
     }
-    
+
     return this._user;
-  }
+  },
 
   parse: function (response) {
     if (response.annotations) {
@@ -36,7 +36,7 @@ Prosody.Models.Article = Backbone.Model.extend({
       this.author().set(response.author, {parse: true});
       delete response.author;
     }
-    
+
     if (response.user) {
       this.user().set(response.user, {parse: true});
       delete response.user;
