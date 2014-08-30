@@ -15,25 +15,26 @@ Prosody.Views.AnnotationForm = Backbone.View.extend({
   },
 
   submit: function (event) {
-      event.preventDefault();
+    event.preventDefault();
 
-      var attrs = $(event.target).serializeJSON();
-      attrs['article_id'] = this.collection.article.id
-      console.log(attrs)
+    var attrs = $(event.target).serializeJSON();
+    attrs['article_id'] = this.collection.article.id;
 
-      function success () {
-      }
 
-      this.model.set(attrs);
-      if (this.model.isNew()) {
-        this.collection.create(this.model, {
-          success: success,
-          wait: true
-        });
-      } else {
-        this.model.save({}, {
-          success: success
-        });
-      }
+    function success () {
+      Backbone.history.navigate(('articles/' + this.collection.article.id), { trigger: true });
     }
+
+    this.model.set(attrs);
+    if (this.model.isNew()) {
+      this.collection.create(this.model, {
+        success: success,
+        wait: true
+      });
+    } else {
+      this.model.save({}, {
+        success: success
+      });
+    }
+  }
 })

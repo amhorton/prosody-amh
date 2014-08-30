@@ -2,9 +2,10 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
   template: JST["articles/show"],
 
   subviews: [],
-  
+
   initialize: function () {
     this.listenTo(this.model.annotations(), 'add sync', this.render)
+    this.listenTo(this.model, 'sync', this.render)
   },
 
   render: function () {
@@ -16,7 +17,7 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
       article: this.model
     });
     this.$el.html(renderedContent);
-    
+
     // render new annotation form
 
     var formView = new Prosody.Views.AnnotationForm({
@@ -24,7 +25,7 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
       collection: this.model.annotations()
     })
     this.$(".annotation-form").html(formView.render().$el)
-    
+
     //render annotations
 
     this.model.annotations().each(function (annotation) {

@@ -41,46 +41,48 @@ div.annotation img {
 
 </style>
 
-<h2><%= article.get('title') %></h2>
+<% if (article.get('text')) { %>
+  <h2><%= article.get('title') %></h2>
 
-<br>
-<h3>
-  By <a>
-    <%= article.author().get("name") %></a>, <%= article.get('year') %>
-</h3>
-<br>
+  <br>
+  <h3>
+    By <a>
+      <%= article.author().get("name") %></a>, <%= article.get('year') %>
+  </h3>
+  <br>
 
-<section class="main group">
-  <div class="article-text">
+  <section class="main group">
+    <div class="article-text">
 
-    <% article.get('text').split("\r\n").forEach(function (line) { %>
-      <%= line %>
-      <br>
-    <% }) %>
-
-  </div>
-
-
-  <div class="annotations-sidebar">
-
-    <div class="annotation-form">
-
-      
-
-    </div>
-
-    <hr>
-
-    <h2>Annotations for this article</h2>
-
-    <div class="annotation-show">
+      <% article.get('text').split("\r\n").forEach(function (line) { %>
+        <%= line %>
+        <br>
+      <% }) %>
 
     </div>
 
 
-  </div>
+    <div class="annotations-sidebar">
 
-</section>
+      <div class="annotation-form">
 
-<hr>
-<a href="#top">Back to top</a>
+
+
+      </div>
+
+      <hr>
+
+      <h2>Annotations for this article</h2>
+
+      <div class="annotation-show">
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+  <hr>
+  <a href="#top">Back to top</a>
+<% } %>
