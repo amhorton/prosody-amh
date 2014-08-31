@@ -1,25 +1,42 @@
+<style>
+.image-preview {
+  width: 350px;
+  height: 350px;
+}
+</style>
+
 <h2>New Annotation</h2>
 
 <form class="new-annotation">
 
   <label>
     Start:
-    <input type="number" name="annotation[start]">
+    <input type="number" name="start">
   </label>
+
   <label>
     End:
-    <input type="number" name="annotation[end]">
+    <input type="number" name="end">
   </label>
+
   <hr>
+
   <label>
     Text:
     <br>
-  <textarea name="annotation[text]"></textarea>
+  <textarea name="text"></textarea>
   </label>
+
   <br>
+
   <label>
     Image:
-    <input type="file" name="annotation[image]">
+    <input type="file" name="image" class="image-input">
+  </label>
+
+  <label>
+    Preview:
+    <img class="image-preview">
   </label>
 
   <button class="new-annotation">Annotate</button>

@@ -3,6 +3,11 @@ Prosody.Views.AnnotationShow = Backbone.View.extend({
 
   subviews: [],
 
+  initialize: function () {
+    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model.comments(), 'sync add', this.render)
+  },
+
   render: function () {
     var that = this;
 
@@ -11,9 +16,16 @@ Prosody.Views.AnnotationShow = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
 
-    this.model.comments().each(function (annotation) {
+    var formView = new Prosody.Views.CommentForm({
+      model: new Prosody.Models.Comment(),
+      collection: this.model.comments()
+    });
+    this.subviews.push(formView);
+    this.$('.new-comment').html(formView.render().$el)
+
+    this.model.comments().each(function (comment) {
       var view = new Prosody.Views.CommentShow({
-        model: annotation
+        model: comment
       });
       that.subviews.push(view);
       that.$(".comments").html()
@@ -21,7 +33,7 @@ Prosody.Views.AnnotationShow = Backbone.View.extend({
     })
     return this;
   },
-  
+
   remove: function () {
     this.subviews.forEach(function (subview) {
       subview.remove();

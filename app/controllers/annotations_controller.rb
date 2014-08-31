@@ -1,4 +1,5 @@
 class AnnotationsController < ApplicationController
+  wrap_parameters false
 
   def create
     @annotation = current_user.annotations.new(annotation_params)

@@ -1,9 +1,10 @@
 class Api::AnnotationsController < ApplicationController
+  wrap_parameters false
 
   def create
+    puts "in controller action"
     @annotation = current_user.annotations.new(annotation_params)
-    @annotation.article_id = params[:article_id]
-    
+
     if @annotation.save
       render json: @annotation
     else

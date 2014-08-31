@@ -3,6 +3,7 @@ class Annotation < ActiveRecord::Base
 
   has_attached_file :image, :styles => { :medium => "400x400>" }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  validates :text, :user_id, :article_id, :start, :end, presence: true
   # validate :valid_start, :valid_end
 
 
@@ -11,14 +12,14 @@ class Annotation < ActiveRecord::Base
 
   has_many(:comments)
 
-  validates :text, :user_id, :article_id, :start, :end, presence: true
+  
 
   def summary
     "#{self.created_at}: #{self.user.username} annotated #{self.article.title} with \"#{self.text}\""
   end
 
   def snippet
-    self.article.text[(self.start)..(self.end)]
+    Article.find(self.article_id).text[(self.start)..(self.end)]
   end
 
   def valid_start

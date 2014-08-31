@@ -6,6 +6,6 @@ json.user do
   json.partial! 'api/users/user', user: annotation.user
 end
 
-json.comments annotation.comments do |comment|
+json.comments annotation.sorted_comments do |comment|
   json.partial! 'api/comments/comment', comment: comment
 end
