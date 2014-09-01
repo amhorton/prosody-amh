@@ -19,6 +19,7 @@ class Api::ArticlesController < ApplicationController
     end
 
     if @article.save
+      @article.user.followers.each {|follower| follower.new_notifications += 1}
       render json: @article
     else
       render json: @article.errors.full_messages, status: 422

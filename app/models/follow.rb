@@ -14,4 +14,8 @@ class Follow < ActiveRecord::Base
   def summary
     "#{self.follower.username} followed you."
   end
+
+  def url
+    "users/#{follower_id}"
+  end
 end

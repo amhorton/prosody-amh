@@ -38,6 +38,8 @@ class User < ActiveRecord::Base
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
 
+    return false unless user
+
     user.is_password?(password) ? user : nil
   end
 
@@ -65,7 +67,15 @@ class User < ActiveRecord::Base
   #custom methods
 
   def events
-    (self.annotations + self.articles).sort_by { |event| event.created_at }
+    (self.annotations + self.articles_from_followed_users + self.in_follows).sort_by { |event| event.created_at }
+  end
+
+  def articles_from_followed_users
+    articles = []
+    self.followed_users.each do |user|
+      articles += user.articles
+    end
+    articles
   end
 
   def recent_events
@@ -95,7 +105,7 @@ class User < ActiveRecord::Base
     self.comments.each { |comment| votes += comment.total_votes}
     self.articles.each { |article| votes += article.total_votes}
     self.annotations.each { |annotation| votes += annotation.total_votes}
-    
+
     votes
   end
 

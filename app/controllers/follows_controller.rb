@@ -4,6 +4,7 @@ class FollowsController < ApplicationController
     @follow = current_user.out_follows.new(follow_params)
 
     if @follow.save
+      @follow.followed.new_notifications += 1
       redirect_to user_url(@follow.followed)
     end
   end

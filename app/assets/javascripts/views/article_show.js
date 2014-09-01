@@ -21,7 +21,6 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
     // render new annotation form
 
     var formView = new Prosody.Views.AnnotationForm({
-      model: new Prosody.Models.Annotation(),
       collection: this.model.annotations()
     })
     this.$(".annotation-form").html(formView.render().$el)

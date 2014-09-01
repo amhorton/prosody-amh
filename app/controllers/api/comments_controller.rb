@@ -4,6 +4,7 @@ class Api::CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
 
     if @comment.save
+      @comment.annotation.user.new_notifications += 1
       render json: @comment
     else
       render json: @comment.errors.full_messages, status: 422

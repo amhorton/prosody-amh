@@ -1,6 +1,8 @@
 Prosody.Models.Annotation = Backbone.Model.extend({
-  urlRoot: 'api/annotations',
-  
+  url: function () {
+    
+  },
+
   toJSON: function () {
     return {annotation: _.clone(this.attributes)}
   },
@@ -23,6 +25,7 @@ Prosody.Models.Annotation = Backbone.Model.extend({
   },
 
   parse: function (response) {
+    console.log("parsin'")
     if (response.comments) {
       this.comments().set(response.comments, {parse: true});
       delete response.comments;

@@ -11,11 +11,13 @@ Rails.application.routes.draw do
   resources :votes
 
   get '/home', to: 'users#home', as: 'home'
+
+  get '/notifications', to: 'users#notifications', as: 'notifications'
   delete '/follows', to: 'follows#destroy', as: 'destroy_follow'
 
   namespace :api, defaults: { format: :json } do
     resources :users, except: [:new, :edit]
-    resources :annotations, except: [:new, :edit, :index]
+    resources :annotations, except: [:new, :edit]
     resources :articles, except: [:new, :edit] do
       resources :annotations, except: [:new, :edit, :index]
     end

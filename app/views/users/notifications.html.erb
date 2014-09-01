@@ -1,0 +1,13 @@
+<h1>Your notifications</h1>
+
+<% if current_user.events %>
+  <ul>
+    <% current_user.events.each do |event| %>
+      <li><a href="<%= event.url %>"><%= event.summary %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <i>Nothing to see here...</i>
+<% end %>
+
+<a href="<%= home_url %>">Home</a>

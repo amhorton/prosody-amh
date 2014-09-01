@@ -15,7 +15,8 @@
 <% if !!current_user %>
   Signed in as: <%= current_user.username %> |
   <a href="<%= user_url(current_user) %>">Profile</a> |
-  <a href="<%= home_url %>">Home</a>
+  <a href="<%= home_url %>">Home</a> |
+  <a href="<%= notifications_url %>">Notifications (<%= current_user.new_notifications %> unread)</a>
 
   <form action="<%= session_url %>" method="POST">
     <%= auth_token %>

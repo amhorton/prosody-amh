@@ -17,6 +17,10 @@ class Annotation < ActiveRecord::Base
   def summary
     "#{self.created_at}: #{self.user.username} annotated #{self.article.title} with \"#{self.text}\""
   end
+  
+  def url
+    "/articles/#{self.article_id}"
+  end
 
   def snippet
     Article.find(self.article_id).text[(self.start)..(self.end)]

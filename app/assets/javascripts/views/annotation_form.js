@@ -21,32 +21,11 @@ Prosody.Views.AnnotationForm = Backbone.View.extend({
     event.preventDefault();
 
     var attrs = $(event.target).serializeJSON();
-
-    attrs['article_id'] = this.collection.article.id;
-
-    function success () {
-      that.collection.fetch();
-    }
-
-    console.log("attrs:", attrs)
-
-    this.model.set(attrs);
-
-    console.log("this.model:", this.model)
-
-
-
-    if (this.model.isNew()) {
-      this.collection.create(this.model, {
-        success: success,
-        wait: true
+    
+    this.collection.create(attrs, {
+      wait: true
       });
-    } else {
-      this.model.save({}, {
-        success: success
-      });
-    }
-  },
+    },
 
   fileSelect: function (event) {
     console.log(event.currentTarget)

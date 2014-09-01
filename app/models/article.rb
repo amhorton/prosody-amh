@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   include Votable
-  
+
   belongs_to(:user)
   belongs_to(:author)
 
@@ -11,6 +11,10 @@ class Article < ActiveRecord::Base
 
   def summary
     "#{self.created_at}: #{self.user.username} uploaded #{self.title}"
+  end
+
+  def url
+    "/articles/#{self.id}"
   end
 
 end
