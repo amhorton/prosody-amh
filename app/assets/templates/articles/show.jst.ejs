@@ -33,7 +33,7 @@ header > h3 {
   font-size: 30px;
 }
 
-/* Article Text and Buttons */
+/* Article Text, Links, and Popup */
 
 div.article-text {
   display: relative;
@@ -45,6 +45,13 @@ div.article-text {
   font-size: 24px;
 }
 
+.article-text > .annotation-link {
+  color: #efcafa;
+}
+
+.article-text > .annotation-link:hover {
+  color: #caeffa;
+}
 div.article-text > .popup {
   display: none;
   position: absolute;
@@ -73,10 +80,11 @@ div.annotations-sidebar {
   float: right;
 }
 
-div.annotation {
+div.annotation-view {
   width: 440px;
-  border: 4px solid #ccc;
   padding: 10px;
+  position: absolute;
+  display: none;
 }
 
 div.annotation img {
@@ -115,14 +123,7 @@ div.annotation img {
 
     <div class="annotations-sidebar">
 
-      <div class="annotation-form"></div>
-
-      <h2>Annotations for this article</h2>
-
-      <div class="annotation-show">
-
-      </div>
-
+      <div class="annotation-view"></div>
 
     </div>
 

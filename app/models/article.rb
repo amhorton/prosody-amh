@@ -17,4 +17,18 @@ class Article < ActiveRecord::Base
     "/articles/#{self.id}"
   end
 
+  def text_with_links
+    text = self.text.dup
+
+    reversed_annotations = self.annotations.sort_by{|annotation| annotation.start}.reverse
+
+    reversed_annotations.each do |annotation|
+      text.insert((annotation.end), "</a>")
+      text.insert(annotation.start, "<a id=#{annotation.id} class=annotation-link>")
+
+    end
+
+    text
+  end
+
 end

@@ -4,7 +4,7 @@ class Annotation < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "400x400>" }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   validates :text, :user_id, :article_id, :start, :end, presence: true
-  # validate :valid_start, :valid_end
+  validate :no_overlap
 
 
   belongs_to(:user, inverse_of: :annotations)
@@ -12,28 +12,30 @@ class Annotation < ActiveRecord::Base
 
   has_many(:comments)
 
-  
+
+
+  def no_overlap
+    overlap = false
+
+    self.article.annotations.each do |annotation|
+      unless self.start >= annotation.end || self.end <= annotation.start
+        overlap = true
+      end
+    end
+
+    self.errors.add(:start, "No overlappin'") if overlap
+  end
 
   def summary
     "#{self.created_at}: #{self.user.username} annotated #{self.article.title} with \"#{self.text}\""
   end
-  
+
   def url
     "/articles/#{self.article_id}"
   end
 
   def snippet
     Article.find(self.article_id).text[(self.start)..(self.end)]
-  end
-
-  def valid_start
-    errors.add(:start, "Can't start annotation there.") if self.start < 0
-  end
-
-  def valid_end
-    if self.end > self.article.text.length
-      errors.add(:end, "Can't end annotation there")
-    end
   end
 
   def sorted_comments

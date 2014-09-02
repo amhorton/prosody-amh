@@ -1,6 +1,11 @@
 Prosody.Views.AnnotationForm = Backbone.View.extend({
   template: JST["annotations/form"],
 
+  initialize: function (options) {
+    this.pos = options.pos;
+    this.snippet = options.snippet;
+  },
+
   events: {
     'submit .new-annotation': 'submit',
     'change .image-input': 'fileSelect'
@@ -8,7 +13,8 @@ Prosody.Views.AnnotationForm = Backbone.View.extend({
 
   render: function () {
     var renderedContent = this.template({
-      annotation: this.model
+      annotation: this.model,
+      snippet: this.snippet
     });
     this.$el.html(renderedContent);
 
@@ -21,10 +27,14 @@ Prosody.Views.AnnotationForm = Backbone.View.extend({
     event.preventDefault();
 
     var attrs = $(event.target).serializeJSON();
+    attrs["start"] = this.pos.start
+    attrs["end"] = this.pos.end
 
     if (that.imageURL) {
       attrs['image'] = that.imageURL
     }
+
+    console.log("attrs:", attrs)
 
     this.collection.create(attrs, {
       wait: true

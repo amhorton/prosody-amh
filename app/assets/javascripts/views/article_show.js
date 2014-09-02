@@ -5,8 +5,9 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
 
   events: {
     'mouseup .article-text': 'showPopup',
-    'mouseup .popup': 'renderForm',
-    'mouseup .main': 'hidePopup'
+    'mousedown .popup': 'renderForm',
+    'mouseup body': 'hidePopup',
+    'click .annotation-link': 'renderAnnotation'
   },
 
   initialize: function () {
@@ -26,14 +27,14 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
 
     //render annotations
 
-    this.model.annotations().each(function (annotation) {
-      var view = new Prosody.Views.AnnotationShow({
-        model: annotation
-      });
-      that.subviews.push(view);
-      that.$(".annotation-show").html();
-      that.$(".annotation-show").append(view.render().$el);
-    })
+    // this.model.annotations().each(function (annotation) {
+  //     var view = new Prosody.Views.AnnotationShow({
+  //       model: annotation
+  //     });
+  //     that.subviews.push(view);
+  //     that.$(".annotation-show").html();
+  //     that.$(".annotation-show").append(view.render().$el);
+  //   })
     return this;
   },
 
@@ -64,12 +65,66 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
   },
 
   renderForm: function (event) {
-    event.stopPropagation()
     event.preventDefault();
+    event.stopPropagation();
+    var range = rangy.getSelection().getRangeAt(0);
+    var snippet = range.text();
+
     var formView = new Prosody.Views.AnnotationForm({
-      collection: this.model.annotations()
+      collection: this.model.annotations(),
+      pos: range.toCharacterRange($(".article-text")[0]),
+      snippet: snippet
     });
-    this.$(".annotation-form").html(formView.render().$el);
+
+    this.subviews.push(formView)
+
+    var y = event.pageY
+
+    var $annotationView = $('.annotation-view');
+
+    $annotationView.html(formView.render().$el);
+
+    if (y + $annotationView.height() > ($(document).height() - 75)) {
+      y = $(document).height() - 75 - $annotationView.height()
+    }
+
+    $annotationView.css({
+      top: y + "px",
+      display: "block"
+    });
+
+
+  },
+
+  renderAnnotation: function (event) {
+    event.preventDefault();
+
+    var annotationID = parseInt(event.currentTarget.id);
+
+    var $annotationView = $('.annotation-view');
+
+    var annotation = this.model.annotations().get(annotationID)
+    console.log(annotation)
+
+    var view = new Prosody.Views.AnnotationShow({
+      model: annotation
+    });
+    this.subviews.push(view);
+    $annotationView.html(view.render().$el);
+
+    var y = event.pageY;
+
+
+
+
+
+    // console.log("y after conditional,", y)
+
+    $annotationView.css({
+      top: y + "px",
+      display: "block"
+    });
+
   },
 
   remove: function () {
