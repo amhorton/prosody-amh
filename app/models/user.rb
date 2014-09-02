@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
 
+  include PgSearch
+
+  multisearchable against: :username
+
   #avatar support
 
   has_attached_file :avatar, :styles => { :medium => "250x250>", :thumb => "100x100>" }, :default_url => "green_:style.png"

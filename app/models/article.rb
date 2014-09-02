@@ -1,5 +1,9 @@
 class Article < ActiveRecord::Base
   include Votable
+  
+  include PgSearch
+  
+  multisearchable against: [:title, :text]
 
   belongs_to(:user)
   belongs_to(:author)
@@ -23,7 +27,7 @@ class Article < ActiveRecord::Base
     reversed_annotations = self.annotations.sort_by{|annotation| annotation.start}.reverse
 
     reversed_annotations.each do |annotation|
-      text.insert((annotation.end), "</a>")
+      text.insert((annotation.end + 1), "</a>")
       text.insert(annotation.start, "<a id=#{annotation.id} class=annotation-link>")
 
     end

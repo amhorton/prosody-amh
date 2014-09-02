@@ -8,6 +8,7 @@ Prosody.Routers.Router = Backbone.Router.extend({
     '': 'home',
     'articles': 'articlesIndex',
     'articles/:id': 'articleShow'
+    ''
   },
 
   home: function () {
@@ -30,8 +31,6 @@ Prosody.Routers.Router = Backbone.Router.extend({
   },
 
   articleShow: function (id) {
-    // TODO: get getOrFetch actually working as intended.
-
     var article = Prosody.articles.getOrFetch(id);
     var view = new Prosody.Views.ArticleShow({
       model: article

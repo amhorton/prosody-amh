@@ -1,4 +1,8 @@
 class Author < ActiveRecord::Base
+  include PgSearch
+
+  multisearchable against: [:first_name, :last_name]
+
   has_many(:articles)
 
   validates :last_name, presence: true

@@ -38,6 +38,8 @@ gem 'aws-sdk'
 
 gem 'figaro'
 
+gem 'pg_search'
+
 group :production do
   gem 'rails_12factor'
 end
