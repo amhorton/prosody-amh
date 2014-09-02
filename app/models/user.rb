@@ -70,6 +70,14 @@ class User < ActiveRecord::Base
 
   #custom methods
 
+  def search_summary
+    "<strong>User</strong>: #{self.username}"
+  end
+
+  def url
+    "#users/#{self.id}"
+  end
+
   def events
     (self.annotations + self.articles_from_followed_users + self.in_follows).sort_by { |event| event.created_at }
   end

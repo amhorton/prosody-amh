@@ -14,7 +14,7 @@
  *= require_self
  */
 
-body, h1, h2, h3, a, li, ul, nav, header, footer, div, section, figure, img, button {
+body, h1, h2, h3, a, li, ul, nav, header, footer, div, section, figure, img, button, input {
   margin: 0;
   padding: 0;
   border: 0;
@@ -23,7 +23,7 @@ body, h1, h2, h3, a, li, ul, nav, header, footer, div, section, figure, img, but
 
 
 body {
-  background-color: #001;
+  background-color: #002;
   color: #bbb;
   font-family: sans-serif;
 }
@@ -40,7 +40,6 @@ a {
 }
 
 a:hover {
-  color: #efcafa;
-  text-weight: bold;
   cursor: pointer;
+  color: #efcafa;
 }

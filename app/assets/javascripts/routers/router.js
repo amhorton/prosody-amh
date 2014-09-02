@@ -12,7 +12,8 @@ Prosody.Routers.Router = Backbone.Router.extend({
   },
 
   home: function () {
-
+    var view = new Prosody.Views.Home()
+    this._swapView(view)
   },
 
   articlesIndex: function () {

@@ -1,6 +1,6 @@
 class Annotation < ActiveRecord::Base
   include Votable
-  
+
   include PgSearch
   multisearchable against: :text
 
@@ -15,7 +15,7 @@ class Annotation < ActiveRecord::Base
 
   has_many(:comments)
 
-
+  #custom validation
 
   def no_overlap
     overlap = false
@@ -29,12 +29,20 @@ class Annotation < ActiveRecord::Base
     self.errors.add(:start, "No overlappin'") if overlap
   end
 
+  #display methods
+
   def summary
     "#{self.created_at}: #{self.user.username} annotated #{self.article.title} with \"#{self.text}\""
   end
 
+  def search_summary
+    str = "<strong>Annotation</strong> on #{self.article.title}: #{self.text[0..25]}"
+    str += "..." if self.text.length > 25
+    str
+  end
+
   def url
-    "/articles/#{self.article_id}"
+    "#articles/#{self.article_id}"
   end
 
   def snippet

@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Prosody</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
   <style>
@@ -21,6 +21,12 @@
     text-align: center;
     margin: 0 auto;
     padding: 20px;
+    font-size: 40px;
+    color: #bbb;
+  }
+
+  .site-title:hover {
+    color: #efcafa;
   }
 
   .site-header {
@@ -39,6 +45,7 @@
     height: 60px;
     text-align: center;
     font-size: 15px;
+    padding: 0 10px;
   }
 
   .user-management {
@@ -64,7 +71,7 @@
 </head>
 <body>
 
-<h1 class="site-title">Prosody</h1>
+<a href="#" class="site-title">♕</a>
 <nav class="site-header group">
 <% if !!current_user %>
 <ul class="user-management group">

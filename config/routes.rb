@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :follows, only: [:create, :destroy]
     resources :comments, except: [:new, :edit, :index]
     resources :votes, only: [:create, :destroy]
+    get '/search/', to: 'searches#search', as: 'search'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

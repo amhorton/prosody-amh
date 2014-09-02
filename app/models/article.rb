@@ -1,8 +1,8 @@
 class Article < ActiveRecord::Base
   include Votable
-  
+
   include PgSearch
-  
+
   multisearchable against: [:title, :text]
 
   belongs_to(:user)
@@ -17,8 +17,12 @@ class Article < ActiveRecord::Base
     "#{self.created_at}: #{self.user.username} uploaded #{self.title}"
   end
 
+  def search_summary
+    "<strong>Article</strong>: #{self.title} by #{self.author.name} (#{self.year})"
+  end
+
   def url
-    "/articles/#{self.id}"
+    "#articles/#{self.id}"
   end
 
   def text_with_links

@@ -28,4 +28,12 @@ class Author < ActiveRecord::Base
   def name
     self.first_name + " " + self.last_name
   end
+
+  def search_summary
+    "<strong>Author</strong>: #{self.name}"
+  end
+
+  def url
+    "/authors/#{self.id}"
+  end
 end
