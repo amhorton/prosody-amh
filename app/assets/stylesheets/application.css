@@ -23,7 +23,7 @@ body, h1, h2, h3, a, li, ul, nav, header, footer, div, section, figure, img, but
 
 
 body {
-  background: #001;
+  background-color: #001;
   color: #bbb;
   font-family: sans-serif;
 }

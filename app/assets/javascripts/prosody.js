@@ -5,9 +5,10 @@ window.Prosody = {
   Routers: {},
   initialize: function () {
 
-    Prosody.articles = new Prosody.Collections.Articles()
+    Prosody.articles = new Prosody.Collections.Articles();
+    Prosody.users = new Prosody.Collections.Users();
 
-    new Prosody.Routers.Router()
-    Backbone.history.start()
+    new Prosody.Routers.Router();
+    Backbone.history.start();
   }
 }

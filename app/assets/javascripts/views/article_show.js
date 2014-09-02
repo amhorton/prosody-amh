@@ -4,9 +4,9 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
   subviews: [],
 
   events: {
-    'mouseup .article-text': 'showPopup',
+    'click .article-text': 'showPopup',
     'mousedown .popup': 'renderForm',
-    'mouseup body': 'hidePopup',
+    'mouseup .main': 'hidePopup',
     'click .annotation-link': 'renderAnnotation'
   },
 
@@ -18,23 +18,11 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
   render: function () {
     var that = this;
 
-    // render self
-
     var renderedContent = this.template({
       article: this.model
     });
     this.$el.html(renderedContent);
 
-    //render annotations
-
-    // this.model.annotations().each(function (annotation) {
-  //     var view = new Prosody.Views.AnnotationShow({
-  //       model: annotation
-  //     });
-  //     that.subviews.push(view);
-  //     that.$(".annotation-show").html();
-  //     that.$(".annotation-show").append(view.render().$el);
-  //   })
     return this;
   },
 
@@ -58,7 +46,6 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
   },
 
   hidePopup: function (event) {
-
     $('.popup').css({
       display: "none"
     });
@@ -92,7 +79,6 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
       top: y + "px",
       display: "block"
     });
-
 
   },
 

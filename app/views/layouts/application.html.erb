@@ -69,7 +69,7 @@
 <% if !!current_user %>
 <ul class="user-management group">
 
-  <li><a href="<%= user_url(current_user) %>">Signed in as: <%= current_user.username %></a></li>
+  <li><a href="#users/<%= current_user.id %>">Signed in as: <%= current_user.username %></a></li>
 
   <li>
       <a href="sign_out_urltoutes">Sign out</a>

@@ -7,8 +7,8 @@ Prosody.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'home',
     'articles': 'articlesIndex',
-    'articles/:id': 'articleShow'
-    ''
+    'articles/:id': 'articleShow',
+    'users/:id': 'userShow'
   },
 
   home: function () {
@@ -16,18 +16,16 @@ Prosody.Routers.Router = Backbone.Router.extend({
   },
 
   articlesIndex: function () {
-    var that = this
+    var that = this;
     Prosody.articles.fetch({
       success: function () {
         var view = new Prosody.Views.ArticlesIndex({
           collection: Prosody.articles
         });
 
-        that._swapView(view)
+        that._swapView(view);
       }
     });
-
-
   },
 
   articleShow: function (id) {
@@ -36,8 +34,17 @@ Prosody.Routers.Router = Backbone.Router.extend({
       model: article
     });
 
-    this._swapView(view)
+    this._swapView(view);
+  },
 
+  userShow: function (id) {
+    var user = Prosody.users.getOrFetch(id);
+    console.log("user:", user)
+    var view = new Prosody.Views.UserShow({
+      model: user
+    });
+
+    this._swapView(view);
   },
 
   _swapView: function (view) {
