@@ -1,4 +1,5 @@
-json.extract!(article, :title, :text, :year, :id)
+json.extract!(article, :title, :year, :text, :id)
+
 json.total_votes article.total_votes
 
 json.user do

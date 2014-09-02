@@ -11,6 +11,12 @@ class UsersController < ApplicationController
 
   end
 
+  def notifications
+    current_user.new_notifications = 0
+    current_user.save!
+    render :notifications
+  end
+
   def new
     redirect_to user_url(current_user) if !!current_user
     @user = User.new

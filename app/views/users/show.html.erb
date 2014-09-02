@@ -22,22 +22,6 @@
 <hr>
 
 <label>
-  Recent Activity:
-  <% if @user.events.empty? %>
-    <br>
-    <i>Nothing to see here...</i>
-  <% else %>
-    <ul>
-      <% @user.events.each do |event| %>
-        <li><%= event.summary %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</label>
-
-<hr>
-
-<label>
   Uploads by this user:
   <ul>
     <% @user.articles.each do |article| %>

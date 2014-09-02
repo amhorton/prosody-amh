@@ -3,6 +3,12 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
 
   subviews: [],
 
+  events: {
+    'mouseup .article-text': 'showPopup',
+    'mouseup .popup': 'renderForm',
+    'mouseup .main': 'hidePopup'
+  },
+
   initialize: function () {
     this.listenTo(this.model.annotations(), 'add sync', this.render)
     this.listenTo(this.model, 'sync', this.render)
@@ -18,13 +24,6 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
 
-    // render new annotation form
-
-    var formView = new Prosody.Views.AnnotationForm({
-      collection: this.model.annotations()
-    })
-    this.$(".annotation-form").html(formView.render().$el)
-
     //render annotations
 
     this.model.annotations().each(function (annotation) {
@@ -32,10 +31,45 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
         model: annotation
       });
       that.subviews.push(view);
-      that.$(".annotation-show").html()
+      that.$(".annotation-show").html();
       that.$(".annotation-show").append(view.render().$el);
     })
     return this;
+  },
+
+  showPopup: function (event) {
+    if (!rangy.getSelection().isCollapsed) {
+      event.stopPropagation();
+
+      $text = $('.article-text');
+      $popup = $('.popup');
+
+      var x = event.pageX;
+      var y = event.pageY;
+
+      $popup.css({
+        left: x + "px",
+        top: y + "px",
+        display: "block"
+      });
+    }
+
+  },
+
+  hidePopup: function (event) {
+
+    $('.popup').css({
+      display: "none"
+    });
+  },
+
+  renderForm: function (event) {
+    event.stopPropagation()
+    event.preventDefault();
+    var formView = new Prosody.Views.AnnotationForm({
+      collection: this.model.annotations()
+    });
+    this.$(".annotation-form").html(formView.render().$el);
   },
 
   remove: function () {

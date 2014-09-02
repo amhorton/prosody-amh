@@ -5,35 +5,87 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <style>
+
+  .group:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .site-title {
+    display: block;
+    width: 900px;
+    clear: both;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .site-header {
+    height: 80px;
+    background: inherit;
+    border-bottom: 3px solid #efcafa;
+  }
+
+  .site-header > ul {
+    list-style: none;
+  }
+
+  .site-header > ul > li > a {
+    display: block;
+    padding: 10px;
+    height: 60px;
+  }
+
+  .user-management {
+    display: block;
+    float: left;
+  }
+
+  .quick-links {
+    display: block;
+    float: right;
+  }
+
+  </style>
+
 </head>
 <body>
 
-  <h1>Prosody</h1>
-
-  <hr>
-
+<h1 class="site-title">Prosody</h1>
+<nav class="site-header group">
 <% if !!current_user %>
-  Signed in as: <%= current_user.username %> |
-  <a href="<%= user_url(current_user) %>">Profile</a> |
-  <a href="<%= home_url %>">Home</a> |
-  <a href="<%= notifications_url %>">Notifications (<%= current_user.new_notifications %> unread)</a>
+<ul class="user-management group">
 
-  <form action="<%= session_url %>" method="POST">
-    <%= auth_token %>
-    <input type="hidden" name="_method" value="DELETE">
-    <button>Sign out</button>
-  </form>
+  <li><a href="<%= user_url(current_user) %>">Signed in as: <%= current_user.username %></a></li>
 
-  <a href="<%= new_article_url %>">Create a new article</a>
+  <li>
+      <form action="<%= session_url %>" method="POST">
+        <%= auth_token %>
+        <input type="hidden" name="_method" value="DELETE">
+        <button class="sign-out">Sign out</button>
+      </form>
+  </li>
+
+</ul>
+
+<ul class="quick-links group">
+  <li><a href="<%= home_url %>">Home</a></li>
+  <li><a href="<%= notifications_url %>">Notifications (<%= current_user.new_notifications %> unread)</a></li>
+  <li><a href="/#articles">All Articles</a></li>
+  <li><a href="<%= new_article_url %>">Create a new article</a></li>
+</ul>
+
+
 
 <% else %>
   <a href="<%= new_user_url %>">Sign up</a> or
   <a href="<%= new_session_url  %>">sign in</a>
-
 <% end %>
-<a href="/#articles">All Articles</a>
 
-<hr>
+</nav>
 
 <%= yield %>
 

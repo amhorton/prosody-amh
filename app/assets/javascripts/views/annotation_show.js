@@ -17,9 +17,9 @@ Prosody.Views.AnnotationShow = Backbone.View.extend({
     this.$el.html(renderedContent);
 
     var formView = new Prosody.Views.CommentForm({
-      model: new Prosody.Models.Comment(),
       collection: this.model.comments()
     });
+    
     this.subviews.push(formView);
     this.$('.new-comment').html(formView.render().$el)
 

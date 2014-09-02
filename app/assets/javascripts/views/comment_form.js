@@ -15,32 +15,14 @@ Prosody.Views.CommentForm = Backbone.View.extend({
   },
 
   submit: function (event) {
-    var that = this
+    var that = this;
 
     event.preventDefault();
 
     var attrs = $(event.target).serializeJSON();
-
-    attrs['comment']['annotation_id'] = this.collection.annotation.id;
-
-    function success () {
-      that.collection.fetch();
-    }
-
-    this.model.set(attrs);
-
-
-
-    if (this.model.isNew()) {
-      this.collection.create(this.model, {
-        success: success,
-        wait: true
-      });
-    } else {
-      this.model.save({}, {
-        success: success
-      });
-    }
-  }
-
+    
+    this.collection.create(attrs, {
+      wait: true
+    });
+  },
 })

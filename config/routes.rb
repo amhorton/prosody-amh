@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :users, except: [:new, :edit]
     resources :annotations, except: [:new, :edit]
     resources :articles, except: [:new, :edit] do
-      resources :annotations, except: [:new, :edit, :index]
+      resources :annotations, except: [:new, :edit]
     end
     resources :authors, except: [:new, :edit]
     resources :follows, only: [:create, :destroy]

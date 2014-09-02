@@ -8,6 +8,7 @@ class Api::AnnotationsController < ApplicationController
   def create
     puts "in controller action"
     @annotation = current_user.annotations.new(annotation_params)
+    @annotation.article_id = params[:article_id]
 
     if @annotation.save
       @annotation.article.user.new_notifications += 1

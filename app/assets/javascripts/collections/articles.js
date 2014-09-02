@@ -6,7 +6,6 @@ Prosody.Collections.Articles = Backbone.Collection.extend({
     var article = this.get(id);
 
     if(!article) {
-      console.log("fetchin'");
       article = new Prosody.Models.Article({ id: id });
       article.fetch({
         success: function () {
@@ -14,7 +13,6 @@ Prosody.Collections.Articles = Backbone.Collection.extend({
         }.bind(this)
       });
     } else {
-      console.log("gettin'");
       article.fetch();
     }
 

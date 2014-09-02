@@ -32,6 +32,8 @@ gem 'seed_dump'
 
 gem 'paperclip'
 
+gem 'rangy-rails'
+
 gem 'aws-sdk'
 
 gem 'figaro'

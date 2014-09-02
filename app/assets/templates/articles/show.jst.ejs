@@ -1,5 +1,6 @@
 <style>
 
+/* CLEARFIX */
 .group:after {
   content: "";
   clear: both;
@@ -11,15 +12,59 @@ section.main {
   width: 1300px;
   height: 100%;
   margin: 0 auto;
+  font-family: inherit;
 }
 
+/* Header Styles */
+
+header {
+  width: 900px;
+  height: 180px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header > h2 {
+  font-size: 40px;
+}
+
+header > h3 {
+  font-size: 30px;
+}
+
+/* Article Text and Buttons */
+
 div.article-text {
+  display: relative;
   border-right: 4px solid #ccc;
   width: 736px;
   height: 100%;
   padding: 20px;
   float: left;
+  font-size: 24px;
 }
+
+div.article-text > .popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  font-size: 60px;
+  padding: 5px 10px 15px 10px;
+  color: #000;
+  background: #efcafa;
+  text-align: center;
+  border-radius: 7px;
+}
+
+div.article-text > .popup:hover {
+  background: #caeffa;
+}
+
+/* Sidebar */
 
 div.annotations-sidebar {
   width: 480px;
@@ -42,35 +87,35 @@ div.annotation img {
 </style>
 
 <% if (article.get('text')) { %>
-  <h2><%= article.get('title') %></h2>
-
-  <br>
-  <h3>
-    By <a>
-      <%= article.author().get("name") %></a>, <%= article.get('year') %>
-  </h3>
-  <br>
-
   <section class="main group">
-    <div class="article-text">
 
-      <% article.get('text').split("\r\n").forEach(function (line) { %>
-        <%= line %>
-        <br>
-      <% }) %>
+    <div class="article">
 
+      <header>
+        <h2><%= article.get('title') %></h2>
+        <h3>
+          By <a>
+            <%= article.author().get("name") %></a>, <%= article.get('year') %>
+        </h3>
+      </header>
+
+      <div class="article-text">
+
+        <% article.get('text').split("\r\n").forEach(function (line) { %>
+          <%= line %>
+          <br>
+        <% }) %>
+
+        <a class="popup">⌽</a>
+
+      </div>
     </div>
+
 
 
     <div class="annotations-sidebar">
 
-      <div class="annotation-form">
-
-
-
-      </div>
-
-      <hr>
+      <div class="annotation-form"></div>
 
       <h2>Annotations for this article</h2>
 

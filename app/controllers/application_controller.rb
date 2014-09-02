@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    User.find_by_session_token(session[:token])
+    return nil unless session[:token]
+    @current_user ||= User.find_by_session_token(session[:token])
   end
 
   def sign_in_user(user)
@@ -15,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def sign_out
     current_user.reset_session_token
-    current_user = nil
+    @current_user = nil
     session[:token] = nil
   end
 

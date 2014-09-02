@@ -5,6 +5,7 @@ class FollowsController < ApplicationController
 
     if @follow.save
       @follow.followed.new_notifications += 1
+      @follow.followed.save
       redirect_to user_url(@follow.followed)
     end
   end

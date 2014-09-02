@@ -16,6 +16,13 @@
 //= require underscore
 //= require jquery.serializejson
 //= require backbone
+//= require rangy-core
+//= require rangy-cssclassapplier
+//= require rangy-highlighter
+//= require rangy-position
+//= require rangy-selectionsaverestore
+//= require rangy-serializer
+//= require rangy-textrange
 //= require prosody
 //= require_tree ../templates
 //= require_tree ./models
