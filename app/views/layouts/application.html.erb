@@ -27,6 +27,7 @@
     height: 80px;
     background: inherit;
     border-bottom: 3px solid #efcafa;
+    margin: 0 0 20px 0;
   }
 
   .site-header > ul {
@@ -35,8 +36,9 @@
 
   .site-header > ul > li > a {
     display: block;
-    padding: 10px;
     height: 60px;
+    text-align: center;
+    font-size: 15px;
   }
 
   .user-management {
@@ -44,9 +46,17 @@
     float: left;
   }
 
+  .user-management > li {
+    float: left;
+  }
+
   .quick-links {
     display: block;
     float: right;
+  }
+
+  .quick-links > li {
+    float: left;
   }
 
   </style>
@@ -62,11 +72,7 @@
   <li><a href="<%= user_url(current_user) %>">Signed in as: <%= current_user.username %></a></li>
 
   <li>
-      <form action="<%= session_url %>" method="POST">
-        <%= auth_token %>
-        <input type="hidden" name="_method" value="DELETE">
-        <button class="sign-out">Sign out</button>
-      </form>
+      <a href="sign_out_urltoutes">Sign out</a>
   </li>
 
 </ul>
