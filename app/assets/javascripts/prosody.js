@@ -3,10 +3,11 @@ window.Prosody = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function () {
+  initialize: function (options) {
 
     Prosody.articles = new Prosody.Collections.Articles();
     Prosody.users = new Prosody.Collections.Users();
+    Prosody.currentUserId = options.currentUserId
 
     new Prosody.Routers.Router();
     Backbone.history.start();

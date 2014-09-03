@@ -1,15 +1,5 @@
 class UsersController < ApplicationController
 
-  def home
-
-    if !!current_user
-      @user = current_user
-      render :home
-    else
-      redirect_to articles_url
-    end
-
-  end
 
   def notifications
     current_user.new_notifications = 0
@@ -28,7 +18,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in_user(@user)
-      redirect_to home_url
+      redirect_to "/#"
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new

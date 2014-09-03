@@ -27,22 +27,23 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
   },
 
   showPopup: function (event) {
-    if (!rangy.getSelection().isCollapsed) {
-      event.stopPropagation();
+    if (Prosody.currentUserId) {
+      if (!rangy.getSelection().isCollapsed) {
+        event.stopPropagation();
 
-      $text = $('.article-text');
-      $popup = $('.popup');
+        $text = $('.article-text');
+        $popup = $('.popup');
 
-      var x = event.pageX;
-      var y = event.pageY;
+        var x = event.pageX;
+        var y = event.pageY;
 
-      $popup.css({
-        left: x + "px",
-        top: y + "px",
-        display: "block"
-      });
+        $popup.css({
+          left: x + "px",
+          top: y + "px",
+          display: "block"
+        });
+      }
     }
-
   },
 
   hidePopup: function (event) {

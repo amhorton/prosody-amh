@@ -16,12 +16,14 @@ Prosody.Views.AnnotationShow = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
 
-    var formView = new Prosody.Views.CommentForm({
-      collection: this.model.comments()
-    });
-    
-    this.subviews.push(formView);
-    this.$('.new-comment').html(formView.render().$el)
+    if (Prosody.currentUserId) {
+      var formView = new Prosody.Views.CommentForm({
+        collection: this.model.comments()
+      });
+
+      this.subviews.push(formView);
+      this.$('.new-comment').html(formView.render().$el)
+    }
 
     this.model.comments().each(function (comment) {
       var view = new Prosody.Views.CommentShow({

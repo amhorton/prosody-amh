@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get '/home', to: 'users#home', as: 'home'
 
-  get '/sign_out', to: 'session#destroy', as: 'sign_out'
+  get '/sign_out', to: 'sessions#destroy', as: 'sign_out'
 
   get '/notifications', to: 'users#notifications', as: 'notifications'
   delete '/follows', to: 'follows#destroy', as: 'destroy_follow'

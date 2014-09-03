@@ -1,0 +1,43 @@
+THINGS TO DO:
+
+- Move all pages to Backbone
+  
+  - New Article
+  
+  - Author show
+
+- Display notifications in dropdown when you click the link
+
+- Get follow buttons working in Backbone
+
+- Get upvote/downvote buttons working in Backbone
+
+  - Allow people to switch their vote from up to down
+
+  - Do this with little arrows as opposed to buttons
+
+- Style the top nav bar
+
+  - Maybe add a search bar on there?
+
+- Style User show page
+
+- Style Author show page
+
+- Style article index page OR get rid of it altogether
+
+- Enable sign-in with Twitter
+
+  - Set up option to Tweet out annotations when you submit them.
+
+- Enable nested comments
+
+- Style new annotation form
+
+- Style annotation show
+
+- BIG VIDEO ON THE SIGN IN PAGE
+
+- Big transparent image on background of entire site
+
+- Write good seeds
