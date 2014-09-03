@@ -1,5 +1,4 @@
 class Api::ArticlesController < ApplicationController
-  before_filter :signed_in_check, only: [:new]
 
   def index
     @articles = Article.all
@@ -23,7 +22,7 @@ class Api::ArticlesController < ApplicationController
         follower.new_notifications += 1
         follower.save
       end
-      
+
       render json: @article
     else
       render json: @article.errors.full_messages, status: 422
