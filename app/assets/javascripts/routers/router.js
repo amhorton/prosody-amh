@@ -41,12 +41,19 @@ Prosody.Routers.Router = Backbone.Router.extend({
   },
   
   articleForm: function () {
-    var view = new Prosody.Views.ArticleForm()
+    var view = new Prosody.Views.ArticleForm();
     
-    this._swapView(view)
+    this._swapView(view);
   },
   
-  
+  authorShow: function (id) {
+    var author = Prosody.authors.getOrFetch(id);
+    var view = new Prosody.Views.AuthorShow({
+      model: author
+    });
+    
+    this._swapView(view);
+  }
 
   userShow: function (id) {
     var user = Prosody.users.getOrFetch(id);

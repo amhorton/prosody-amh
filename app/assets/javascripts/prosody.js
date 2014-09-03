@@ -7,6 +7,8 @@ window.Prosody = {
 
     Prosody.articles = new Prosody.Collections.Articles();
     Prosody.users = new Prosody.Collections.Users();
+    Prosody.authors = new Prosody.Collections.Authors();
+    
     Prosody.currentUserId = options.currentUserId
 
     new Prosody.Routers.Router();

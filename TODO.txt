@@ -18,8 +18,6 @@ THINGS TO DO:
 
 - Style the top nav bar
 
-  - Maybe add a search bar on there?
-
 - Style User show page
 
 - Style Author show page
@@ -41,3 +39,5 @@ THINGS TO DO:
 - Big transparent image on background of entire site
 
 - Write good seeds
+
+- Clean up routes
