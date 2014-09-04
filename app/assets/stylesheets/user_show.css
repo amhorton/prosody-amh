@@ -1,0 +1,61 @@
+/* Big container sizing*/
+
+.user-show-container {
+  width: 990px;
+  background: #effaca;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+/* column sizing and spacing */
+
+.user-show-container > .col {
+  width: 300px;
+  height: 50px;
+  background: #facaef;
+  float: left;
+}
+
+.user-show-container > .left {
+  margin: 0 45px 0 0;
+}
+
+.user-show-container > .mid {
+}
+
+.user-show-container > .right {
+  margin: 0 0 0 45px;
+}
+
+/* general rand styles */
+
+.user-show-container > .col > .rand {
+  height: 400px;
+  width: 100%;
+  background: #faefca;
+}
+
+/* profile picture styles*/
+
+.user-show-container > .col > .profile-picture {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.user-show-container > .col > .profile-picture > img {
+  width: 292px;
+  height: 292px;
+  border: 4px solid #efcafa;
+}
+
+.user-show-container > .col > .profile-picture > .user-total-votes {
+  position: absolute;
+  background: #efcafa;
+  color: #002;
+  font-size: 20px;
+  padding: 7px;
+  right: 0;
+  bottom: 0;
+}
+

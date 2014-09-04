@@ -79,10 +79,8 @@ class User < ActiveRecord::Base
   end
 
   def events
-    (self.articles_from_followed_users
-     + self.in_follows
-     + self.comments_on_annotations
-     + self.annotations_on_articles).sort_by { |event| event.created_at }
+    events = (self.articles_from_followed_users + self.in_follows + self.comments_on_annotations + self.annotations_on_articles).sort_by { |event| event.created_at }
+    events.sort_by{ |event| event.created_at}.reverse
   end
 
   def articles_from_followed_users

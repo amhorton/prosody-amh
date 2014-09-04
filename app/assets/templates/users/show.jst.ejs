@@ -1,15 +1,62 @@
-<h2><%= user.escape('username') %></h2>
+<% if (user.get('followers')) { %>
 
-<h3>Total votes: <%= user.escape('total_votes') %></h3>
+  <h2 class='username'><%= user.escape('username') %></h2>
 
-<br>
+  <div class='user-show-container group'>
 
-<img src="<%= user.escape('avatar') %>">
+    <section class="user left col">
+      <article class= "rand rand-article">
 
-<% if (user.get("can_follow")) { %>
-  <button class="follow-button">Follow <%= user.escape("username") %></button>
-<% } else if (user.get("can_unfollow")) { %>
+      </article>
 
-  <button class="unfollow-button">Unfollow <%= user.get("username") %></button>
+      <figure class="follow-box followers">
+
+      </figure>
+    </section>
+
+    <section class="user mid col">
+      <figure class="profile-picture">
+        <img src="<%= user.escape('avatar') %>">
+        <small class="user-total-votes">Total votes: <%= user.get('total_votes') %></small>
+      </figure>
+
+      <% if (user.get("can_follow")) { %>
+        <button class="follow-button">Follow <%= user.escape("username")      %></button>
+      <% } else if (user.get("can_unfollow")) { %>
+
+        <button class="unfollow-button">Unfollow <%= user.get("username") %></button>
+      <% } %>
+
+      <div class="content-container"></div>
+
+    </section>
+
+    <section class="user right col">
+      <article class="rand rand-annotation">
+
+      </article>
+
+      <figure class="follow-box following">
+
+      </figure>
+    </section>
+
+  </div>
+
+  <h3 class="user-total-votes">Total votes: <%= user.escape('total_votes') %></h3>
+
+  <br>
+
+  <h4>Followers</h4>
+
+  <% user.get("followers").forEach(function (follower) { %>
+
+    <a href="/#users/<%= follower['id'] %>">
+      <img class="follower-image" src="<%= follower['avatar'] %>">
+    </a>
+
+
+  <% }); %>
+
 
 <% } %>

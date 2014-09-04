@@ -8,7 +8,7 @@ json.followers @user.followers do |user|
 end
 
 json.followed_users @user.followed_users do |user|
-  json.partial 'api/users/user', user: user
+  json.partial! 'api/users/user', user: user
 end
 
 json.articles @user.articles do |article|

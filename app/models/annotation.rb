@@ -32,7 +32,7 @@ class Annotation < ActiveRecord::Base
   #display methods
 
   def summary
-    "#{self.created_at}: #{self.user.username} annotated #{self.article.title} with \"#{self.text}\""
+    "#{self.user.username} annotated #{self.article.title} with \"#{self.text}\""
   end
 
   def search_summary

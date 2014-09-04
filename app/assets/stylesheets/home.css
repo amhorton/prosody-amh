@@ -1,21 +1,21 @@
 .big-search {
   margin: 0 auto;
-  width: 900px;
+  width: 1050px;
   text-align: center;
   margin-bottom: 40px;
 }
 
 .big-search > h1 {
-  font-size: 100px;
+  font-size: 120px;
   padding: 0 0 30px 0;
 }
 
 .big-search > input {
-  width: 900px;
-  height: 45px;
+  width: 1050px;
+  height: 52px;
   padding: 5px;
   background: inherit;
-  font-size: 30px;
+  font-size: 40px;
   color: #efcafa;
   border: 3px solid #efcafa;
   text-align: center;
