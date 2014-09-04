@@ -20,8 +20,11 @@ Prosody.Views.CommentForm = Backbone.View.extend({
     event.preventDefault();
 
     var attrs = $(event.target).serializeJSON();
-    
+
     this.collection.create(attrs, {
+      success: function (data) {
+        that.collection.fetch();
+      },
       wait: true
     });
   },

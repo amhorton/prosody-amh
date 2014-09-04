@@ -17,12 +17,24 @@ Prosody.Views.AnnotationShow = Backbone.View.extend({
     this.$el.html(renderedContent);
 
     if (Prosody.currentUserId) {
+      // render comment form
+
       var formView = new Prosody.Views.CommentForm({
         collection: this.model.comments()
       });
 
       this.subviews.push(formView);
       this.$('.new-comment').html(formView.render().$el)
+
+      //render vote buttons
+
+      var voteButtonView = new Prosody.Views.VoteButtons({
+        model: this.model,
+        votableType: "Annotation"
+      });
+
+      this.subviews.push(voteButtonView)
+      this.$('.vote-buttons').html(voteButtonView.render().$el)
     }
 
     this.model.comments().each(function (comment) {

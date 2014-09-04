@@ -2,7 +2,13 @@ class Api::AnnotationsController < ApplicationController
   wrap_parameters false
 
   def index
+    @annotations = Article.find(params[:article_id]).annotations
     render :index
+  end
+
+  def show
+    @annotation = Annotation.find(params[:id])
+    render partial: "annotation", locals: {annotation: @annotation}
   end
 
   def create

@@ -1,0 +1,113 @@
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+section.main {
+  display: block;
+  width: 1050px;
+  height: 100%;
+  margin: 0 auto;
+  font-family: inherit;
+}
+
+/* General vote styles */
+
+.vote {
+  color: #efcafa;
+}
+
+.inactive {
+  color: #bbb;
+}
+
+.inactive:hover {
+  color: #caeffa;
+}
+
+/* Header Styles */
+
+header {
+  width: 1050px;
+  height: 180px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header > h2 {
+  font-size: 40px;
+}
+
+header > h3 {
+  font-size: 30px;
+}
+
+header > .vote-buttons big {
+  font-size: 25px;
+}
+
+header > .vote-buttons .vote {
+  font-size: 25px;
+  padding: 0 10px;
+}
+
+/* Article Text, Links, and Popup */
+
+div.article-text {
+  width: 550px;
+  padding: 20px 50px 0px 0px;
+  float: left;
+  font-size: 24px;
+  margin: 0 auto;
+}
+
+.article-text > .annotation-link {
+  color: #efcafa;
+}
+
+.article-text > .annotation-link:hover {
+  color: #caeffa;
+}
+div.article-text > .popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  font-size: 60px;
+  padding: 5px 10px 15px 10px;
+  color: #000;
+  background: #efcafa;
+  text-align: center;
+  border-radius: 7px;
+}
+
+div.article-text > .popup:hover {
+  background: #caeffa;
+}
+
+/* Sidebar */
+
+div.annotations-sidebar {
+  width: 410px;
+  height: 100%;
+  padding: 20px;
+  float: right;
+}
+
+div.annotation-view {
+  width: 400px;
+  padding: 0 25px;
+  position: relative;
+  display: none;
+  border-left: 4px solid #bbb;
+
+}
+
+div.annotation img {
+  margin: 0 auto;
+  width: 400px;
+}

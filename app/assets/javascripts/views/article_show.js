@@ -8,11 +8,10 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
     'mousedown .popup': 'renderForm',
     'mouseup .main': 'hidePopup',
     'click .annotation-link': 'renderAnnotation',
-    'click .inactive': 'vote'
   },
 
   initialize: function () {
-    this.listenTo(this.model.annotations(), 'add sync', this.render)
+    this.listenTo(this.model.annotations(), 'add', this.render)
     this.listenTo(this.model, 'sync', this.render)
     this._showPopup = false;
   },
@@ -25,43 +24,16 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
 
-    if (!this.model.get("can_upvote")) {
-      this.$('.up').removeClass("inactive");
-    }
+    var voteButtons = new Prosody.Views.VoteButtons({
+      model: this.model,
+      votableType: "Article"
+    });
 
-    if (!this.model.get("can_downvote")) {
-      this.$('.down').removeClass("inactive");
-    }
+    this.subviews.push(voteButtons);
 
+    this.$('.vote-buttons').html(voteButtons.render().$el);
 
     return this;
-  },
-
-  vote: function (event) {
-    event.preventDefault();
-    
-    var that = this;
-    
-    if ($(event.target).hasClass("up")) {
-      var val = 1
-    } else {
-      var val = -1
-    }
-
-    $.ajax({
-      type: "POST",
-      url: "/api/votes",
-      data: {
-        vote: {
-          val: val,
-          votable_id: this.model.id,
-          votable_type: "Article"
-        }
-      },
-      success: function(data){
-        that.model.fetch()
-      }
-    });
   },
 
   showPopup: function (event) {
@@ -89,8 +61,6 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
   },
 
   hidePopup: function (event) {
-    console.log(event.target)
-    console.log(event.currentTarget)
     $('.popup').css({
       display: "none"
     });
@@ -112,18 +82,14 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
 
     this.subviews.push(formView)
 
-    var y = event.pageY
+    var y = event.pageY - $(".annotations-sidebar").offset().top;
 
     var $annotationView = $('.annotation-view');
 
     $annotationView.html(formView.render().$el);
 
-    if (y + $annotationView.height() > ($(document).height() - 75)) {
-      y = $(document).height() - 75 - $annotationView.height()
-    }
-
     $annotationView.css({
-      top: y + "px",
+      padding: y + "px 0 0 30px",
       display: "block"
     });
 
@@ -145,16 +111,10 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
     this.subviews.push(view);
     $annotationView.html(view.render().$el);
 
-    var y = event.pageY;
-
-
-
-
-
-    // console.log("y after conditional,", y)
+    var y = event.pageY - $(".annotations-sidebar").offset().top;
 
     $annotationView.css({
-      top: y + "px",
+      padding: y + "px 0 0 30px",
       display: "block"
     });
 

@@ -34,6 +34,6 @@ class Author < ActiveRecord::Base
   end
 
   def url
-    "/authors/#{self.id}"
+    "/#authors/#{self.id}"
   end
 end

@@ -1,9 +1,11 @@
 <% if (results['results'].length === 0) { %>
-  <big>Nothing to see here...</big>
+  <big class="empty-message">Nothing to see here...</big>
 <% } else { %>
   <ul>
     <% results['results'].forEach(function(result) { %>
-      <a class="result-link" href="<%= result['url'] %>"><%= result['summary'] %></a>
+      <li>
+        <a class="result-link" href="<%= result['url'] %>"><%= result['summary'] %></a>
+      </li>
     <% }) %>
   </ul>
 <% } %>

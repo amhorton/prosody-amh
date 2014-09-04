@@ -2,13 +2,14 @@ THINGS TO DO:
 
 - Display notifications in dropdown when you click the link
 
- 
 
-- Get upvote/downvote buttons working in Backbone
 
-  - Allow people to switch their vote from up to down
 
-  - Do this with little arrows as opposed to buttons
+
+
+
+
+
 
 - Style the top nav bar
 
@@ -20,24 +21,55 @@ THINGS TO DO:
 
 - Enable sign-in with Twitter
 
-  - Set up option to Tweet out annotations when you submit them.
 
-- Enable nested comments
+
+
 
 - Style new annotation form
 
 - Style annotation show
 
-- BIG VIDEO ON THE SIGN IN PAGE
 
-- Big transparent image on background of entire site
+
+
 
 - Write good seeds
 
 - Clean up routes
 
-- Partial word search
+
 
 - Fix n + 1,000,000 queries
 
 - Prettify code: add spacing, semicolons, comments, remove console logs
+
+
+
+- Delete unused rails views
+
+
+
+
+
+- Throw vote buttons onto comments
+
+
+
+
+
+- Style comments
+
+- Don't hotlink your swan image
+
+
+####BONUS####
+
+- BIG VIDEO ON THE SIGN IN PAGE
+
+- Set up option to Tweet out annotations when you submit them.
+
+- Enable nested comments
+
+- .txt file upload on new article form
+
+- Have comment load up when you click from a notification

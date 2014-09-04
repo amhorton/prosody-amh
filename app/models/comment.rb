@@ -11,6 +11,6 @@ class Comment < ActiveRecord::Base
   end
 
   def url
-    "/articles/#{self.article_id}"
+    "/#articles/#{self.annotation.article_id}"
   end
 end

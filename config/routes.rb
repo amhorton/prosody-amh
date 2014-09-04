@@ -21,13 +21,14 @@ Rails.application.routes.draw do
     resources :users, except: [:new, :edit]
     resources :annotations, except: [:new, :edit]
     resources :articles, except: [:new, :edit] do
-      resources :annotations, except: [:new, :edit]
+      resources :annotations, except: [:new, :edit] do
+        resources :comments, except: [:new, :edit]
+      end
     end
     resources :authors, except: [:new, :edit]
     resources :follows, only: [:create]
-    delete '/follows', to: 'follows#destroy', as: 'unfollow'
     resources :comments, except: [:new, :edit, :index]
-    resources :votes, only: [:create, :destroy]
+    post '/votes', to: "votes#create", as: 'vote'
     get '/search/', to: 'searches#search', as: 'search'
   end
 

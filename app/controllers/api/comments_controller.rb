@@ -1,7 +1,13 @@
 class Api::CommentsController < ApplicationController
 
+  def index
+    @comments = Annotation.find(params[:annotation_id]).comments
+    render :index
+  end
+
   def create
     @comment = current_user.comments.new(comment_params)
+    @comment.annotation_id = params[:annotation_id]
 
     if @comment.save
       @comment.annotation.user.new_notifications += 1
@@ -20,7 +26,7 @@ class Api::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text, :annotation_id)
+    params.require(:comment).permit(:text)
   end
 
 end

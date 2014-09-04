@@ -79,7 +79,10 @@ class User < ActiveRecord::Base
   end
 
   def events
-    (self.annotations + self.articles_from_followed_users + self.in_follows).sort_by { |event| event.created_at }
+    (self.articles_from_followed_users
+     + self.in_follows
+     + self.comments_on_annotations
+     + self.annotations_on_articles).sort_by { |event| event.created_at }
   end
 
   def articles_from_followed_users
@@ -88,6 +91,22 @@ class User < ActiveRecord::Base
       articles += user.articles
     end
     articles
+  end
+
+  def annotations_on_articles
+    annotations = []
+    self.articles.each do |article|
+      annotations += article.annotations
+    end
+    annotations
+  end
+
+  def comments_on_annotations
+    comments = []
+    self.annotations.each do |annotation|
+      comments += annotation.comments
+    end
+    comments
   end
 
   def recent_events

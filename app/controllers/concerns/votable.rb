@@ -13,14 +13,14 @@ module Votable
     vote = self.votes.find_by_user_id(user.id)
     return true unless vote
 
-    !(vote.val == -1)
+    (vote.val == -1)
   end
 
   def can_downvote?(user)
     vote = self.votes.find_by_user_id(user.id)
     return true unless vote
 
-    !(vote.val == 1)
+    (vote.val == 1)
   end
 
 end
