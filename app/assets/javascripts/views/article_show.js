@@ -7,7 +7,8 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
     'click .article-text': 'showPopup',
     'mousedown .popup': 'renderForm',
     'mouseup .main': 'hidePopup',
-    'click .annotation-link': 'renderAnnotation'
+    'click .annotation-link': 'renderAnnotation',
+    'click .inactive': 'vote'
   },
 
   initialize: function () {
@@ -24,7 +25,43 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
 
+    if (!this.model.get("can_upvote")) {
+      this.$('.up').removeClass("inactive");
+    }
+
+    if (!this.model.get("can_downvote")) {
+      this.$('.down').removeClass("inactive");
+    }
+
+
     return this;
+  },
+
+  vote: function (event) {
+    event.preventDefault();
+    
+    var that = this;
+    
+    if ($(event.target).hasClass("up")) {
+      var val = 1
+    } else {
+      var val = -1
+    }
+
+    $.ajax({
+      type: "POST",
+      url: "/api/votes",
+      data: {
+        vote: {
+          val: val,
+          votable_id: this.model.id,
+          votable_type: "Article"
+        }
+      },
+      success: function(data){
+        that.model.fetch()
+      }
+    });
   },
 
   showPopup: function (event) {

@@ -125,7 +125,11 @@ div.annotation img {
           By <a>
             <%= article.author().get("name") %></a>, <%= article.get('year') %>
         </h3>
-        <a class="down vote inactive">∇</a><big><%= article.get('total_votes') %></big><a class="up vote inactive">∆</a>
+        <% if (Prosody.currentUserId) { %>
+          <a class="down vote inactive">∇</a>
+          <big><%= article.get('total_votes') %></big>
+          <a class="up vote inactive">∆</a>
+        <% } %>
       </header>
 
       <div class="article-text">
