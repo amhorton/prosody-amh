@@ -13,6 +13,7 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
   initialize: function () {
     this.listenTo(this.model.annotations(), 'add sync', this.render)
     this.listenTo(this.model, 'sync', this.render)
+    this._showPopup = false;
   },
 
   render: function () {
@@ -28,28 +29,36 @@ Prosody.Views.ArticleShow = Backbone.View.extend({
 
   showPopup: function (event) {
     if (Prosody.currentUserId) {
-      if (!rangy.getSelection().isCollapsed) {
-        event.stopPropagation();
+      if (!rangy.getSelection().isCollapsed && this._showPopup === false) {
+        if (!$(event.target).hasClass("popup")) {
+          event.stopPropagation();
 
-        $text = $('.article-text');
-        $popup = $('.popup');
+          $text = $('.article-text');
+          $popup = $('.popup');
 
-        var x = event.pageX;
-        var y = event.pageY;
+          var x = event.pageX;
+          var y = event.pageY;
 
-        $popup.css({
-          left: x + "px",
-          top: y + "px",
-          display: "block"
-        });
+          $popup.css({
+            left: x + "px",
+            top: y + "px",
+            display: "block"
+          });
+
+          this._showPopup = true;
+        }
       }
     }
   },
 
   hidePopup: function (event) {
+    console.log(event.target)
+    console.log(event.currentTarget)
     $('.popup').css({
       display: "none"
     });
+
+    this._showPopup = false
   },
 
   renderForm: function (event) {

@@ -9,7 +9,7 @@ Prosody.Routers.Router = Backbone.Router.extend({
     'articles': 'articlesIndex',
     'articles/:id': 'articleShow',
     'users/:id': 'userShow',
-    'articles/new': 'articleForm',
+    'new': 'articleForm',
     'authors/:id': 'authorShow'
   },
 
@@ -39,25 +39,29 @@ Prosody.Routers.Router = Backbone.Router.extend({
 
     this._swapView(view);
   },
-  
+
   articleForm: function () {
-    var view = new Prosody.Views.ArticleForm();
-    
-    this._swapView(view);
+    if (Prosody.currentUserId) {
+      var view = new Prosody.Views.ArticleForm();
+
+      this._swapView(view);
+    } else {
+      // Backbone.history.navigate("/sessions/new", {});
+      window.location = "session/new";
+    }
   },
-  
+
   authorShow: function (id) {
     var author = Prosody.authors.getOrFetch(id);
     var view = new Prosody.Views.AuthorShow({
       model: author
     });
-    
+
     this._swapView(view);
-  }
+  },
 
   userShow: function (id) {
     var user = Prosody.users.getOrFetch(id);
-    console.log("user:", user)
     var view = new Prosody.Views.UserShow({
       model: user
     });

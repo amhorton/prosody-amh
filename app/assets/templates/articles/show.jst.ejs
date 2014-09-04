@@ -109,8 +109,8 @@ div.annotation img {
 
       <div class="article-text">
 
-        <% article.get('text').split("\r\n").forEach(function (line) { %>
-          <%= line %>
+        <% article.get('text').split("\n").forEach(function (line) { %>
+          <%= line.replace("\r", "") %>
           <br>
         <% }) %>
 

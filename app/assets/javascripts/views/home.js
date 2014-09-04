@@ -14,7 +14,6 @@ Prosody.Views.Home = Backbone.View.extend({
   },
 
   renderResults: function (event) {
-    console.log(event)
 
     var $searchResults = $('.search-results');
 

@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
 
   include PgSearch
 
-  multisearchable against: [:title, :text]
+  multisearchable against: [:title, :text], using: {tsearch: {prefix: true}}
 
   belongs_to(:user)
   belongs_to(:author)

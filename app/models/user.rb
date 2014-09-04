@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   include PgSearch
 
-  multisearchable against: :username
+  multisearchable against: :username, using: {tsearch: {prefix: true}}
 
   #avatar support
 

@@ -1,7 +1,7 @@
 class Author < ActiveRecord::Base
   include PgSearch
 
-  multisearchable against: [:first_name, :last_name]
+  multisearchable against: [:first_name, :last_name], using: {tsearch: {prefix: true}}
 
   has_many(:articles)
 

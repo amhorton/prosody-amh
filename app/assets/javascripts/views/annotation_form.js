@@ -34,9 +34,10 @@ Prosody.Views.AnnotationForm = Backbone.View.extend({
       attrs['image'] = that.imageURL
     }
 
-    console.log("attrs:", attrs)
-
     this.collection.create(attrs, {
+      success: function (data) {
+        that.collection.article.fetch()
+      },
       wait: true
     });
   },

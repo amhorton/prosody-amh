@@ -1,14 +1,8 @@
 THINGS TO DO:
 
-- Move all pages to Backbone
-  
-  - New Article
-  
-  - Author show
-
 - Display notifications in dropdown when you click the link
 
-- Get follow buttons working in Backbone
+ 
 
 - Get upvote/downvote buttons working in Backbone
 
@@ -22,7 +16,7 @@ THINGS TO DO:
 
 - Style Author show page
 
-- Style article index page OR get rid of it altogether
+
 
 - Enable sign-in with Twitter
 
@@ -41,3 +35,9 @@ THINGS TO DO:
 - Write good seeds
 
 - Clean up routes
+
+- Partial word search
+
+- Fix n + 1,000,000 queries
+
+- Prettify code: add spacing, semicolons, comments, remove console logs

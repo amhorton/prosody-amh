@@ -24,7 +24,8 @@ Rails.application.routes.draw do
       resources :annotations, except: [:new, :edit]
     end
     resources :authors, except: [:new, :edit]
-    resources :follows, only: [:create, :destroy]
+    resources :follows, only: [:create]
+    delete '/follows', to: 'follows#destroy', as: 'unfollow'
     resources :comments, except: [:new, :edit, :index]
     resources :votes, only: [:create, :destroy]
     get '/search/', to: 'searches#search', as: 'search'

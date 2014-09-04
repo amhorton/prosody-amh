@@ -1,7 +1,7 @@
-Prosody.Collections.Author = Backbone.Collection.extend({
+Prosody.Collections.Authors = Backbone.Collection.extend({
   model: Prosody.Models.Author,
   url: "/api/authors",
-  
+
   getOrFetch: function (id) {
     var author = this.get(id);
 

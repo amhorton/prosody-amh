@@ -6,7 +6,6 @@ Prosody.Views.SearchResults = Backbone.View.extend({
   },
 
   render: function () {
-    console.log("results:", this.results)
     var renderedContent = this.template({
       results: this.results
     });

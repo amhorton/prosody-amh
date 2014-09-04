@@ -5,3 +5,11 @@
 <br>
 
 <img src="<%= user.escape('avatar') %>">
+
+<% if (user.get("can_follow")) { %>
+  <button class="follow-button">Follow <%= user.escape("username") %></button>
+<% } else if (user.get("can_unfollow")) { %>
+
+  <button class="unfollow-button">Unfollow <%= user.get("username") %></button>
+
+<% } %>

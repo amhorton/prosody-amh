@@ -1,12 +1,4 @@
 class ArticlesController < ApplicationController
-  before_filter :signed_in_check, only: [:new]
-
-  def new
-    @article = Article.new
-    @author = Author.new
-    render :new
-  end
-
   def create
 
     @article = current_user.articles.new(article_params)
@@ -20,7 +12,7 @@ class ArticlesController < ApplicationController
     end
 
     if @article.save
-      redirect_to article_url(@article)
+      redirect_to "/#articles/#{@article.id}"
     else
       flash.now[:errors] = @article.errors.full_messages
       render :new
