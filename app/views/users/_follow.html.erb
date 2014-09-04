@@ -1,5 +1,0 @@
-<form action="<%= follows_url %>" method="POST">
-  <%= auth_token %>
-<input type="hidden" name="follow[followed_id]" value="<%= @user.id %>">
-<button>Follow <%= @user.username %></button>
-</form>
