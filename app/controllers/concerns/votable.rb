@@ -8,9 +8,19 @@ module Votable
   def total_votes
     self.votes.inject(0) {|result, vote| result + vote.val}
   end
-  
-  def can_vote(user)
-    !self.votes.find_by_user_id(user.id)
+
+  def can_upvote(user)
+    vote = self.votes.find_by_user_id(user.id)
+    return true unless vote
+
+    !(vote.val == -1)
+  end
+
+  def can_downvote
+    vote = self.votes.find_by_user_id(user.id)
+    return true unless vote
+
+    !(vote.val == 1)
   end
 
 end

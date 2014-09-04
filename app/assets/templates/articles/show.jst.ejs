@@ -33,6 +33,26 @@ header > h3 {
   font-size: 30px;
 }
 
+header > big {
+  font-size: 25px;
+}
+
+header > .vote {
+  font-size: 25px;
+  color: #efcafa;
+  padding: 0 10px;
+}
+
+header > .inactive {
+  color: #bbb;
+}
+
+header > .inactive:hover {
+  color: #caeffa;
+}
+
+
+
 /* Article Text, Links, and Popup */
 
 div.article-text {
@@ -105,6 +125,7 @@ div.annotation img {
           By <a>
             <%= article.author().get("name") %></a>, <%= article.get('year') %>
         </h3>
+        <a class="down vote inactive">∇</a><big><%= article.get('total_votes') %></big><a class="up vote inactive">∆</a>
       </header>
 
       <div class="article-text">
