@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     end
     resources :authors, except: [:new, :edit]
     resources :follows, only: [:create]
+    delete '/follows', to: "follows#destroy", as: 'unfollow'
     resources :comments, except: [:new, :edit, :index]
     post '/votes', to: "votes#create", as: 'vote'
     get '/search/', to: 'searches#search', as: 'search'

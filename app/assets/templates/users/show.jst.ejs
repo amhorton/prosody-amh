@@ -1,30 +1,37 @@
 <% if (user.get('followers')) { %>
 
-  <h2 class='username'><%= user.escape('username') %></h2>
-
   <div class='user-show-container group'>
 
     <section class="user left col">
       <article class= "rand rand-article">
 
+
+        <big class="box-title">Articles</big>
       </article>
 
-      <figure class="follow-box followers">
+      <figure class="follow-box followers group">
+        <img src="<%= user.escape('avatar') %>">
+        <img src="<%= user.escape('avatar') %>">
+        <img src="<%= user.escape('avatar') %>">
+        <img src="<%= user.escape('avatar') %>">
+        <img src="<%= user.escape('avatar') %>">
+        <img src="<%= user.escape('avatar') %>">
 
+        <big class="box-title">Followers</big>
       </figure>
     </section>
 
     <section class="user mid col">
       <figure class="profile-picture">
         <img src="<%= user.escape('avatar') %>">
+        <big class="box-title"><%= user.escape('username') %></big>
         <small class="user-total-votes">Total votes: <%= user.get('total_votes') %></small>
       </figure>
 
       <% if (user.get("can_follow")) { %>
-        <button class="follow-button">Follow <%= user.escape("username")      %></button>
+        <button class="follow-button">Follow</button>
       <% } else if (user.get("can_unfollow")) { %>
-
-        <button class="unfollow-button">Unfollow <%= user.get("username") %></button>
+        <button class="unfollow-button">Unfollow</button>
       <% } %>
 
       <div class="content-container"></div>
@@ -34,16 +41,24 @@
     <section class="user right col">
       <article class="rand rand-annotation">
 
+        <big class="box-title">Annotations</big>
       </article>
 
-      <figure class="follow-box following">
+      <figure class="follow-box following group">
+        <img src="<%= user.escape('avatar') %>">
+        <img src="<%= user.escape('avatar') %>">
+        <img src="<%= user.escape('avatar') %>">
+        <img src="<%= user.escape('avatar') %>">
+        <img src="<%= user.escape('avatar') %>">
+        <img src="<%= user.escape('avatar') %>">
 
+        <big class="box-title">Following</big>
       </figure>
     </section>
 
   </div>
 
-  <h3 class="user-total-votes">Total votes: <%= user.escape('total_votes') %></h3>
+  <!-- <h3 class="user-total-votes">Total votes: <%= user.escape('total_votes') %></h3>
 
   <br>
 
@@ -56,7 +71,7 @@
     </a>
 
 
-  <% }); %>
+  <% }); %> -->
 
 
 <% } %>

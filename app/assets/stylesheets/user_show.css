@@ -1,10 +1,30 @@
+/* Username styles */
+
+.user-show-container > .col > .profile-picture > .box-title {
+  font-size: 60px;
+  top: -52px;
+}
+
 /* Big container sizing*/
 
 .user-show-container {
   width: 990px;
-  background: #effaca;
   padding: 30px;
-  margin: 0 auto;
+  margin: 50px auto;
+}
+
+/* Box label styling */
+
+.user-show-container > .col .box-title {
+  display: block;
+  position: absolute;
+  font-size: 40px;
+  letter-spacing: -2;
+  font-weight: bold;
+  color: #efcafa;
+  top: -40px;
+  left: -6px;
+  font-variant: small-caps;
 }
 
 /* column sizing and spacing */
@@ -30,9 +50,28 @@
 /* general rand styles */
 
 .user-show-container > .col > .rand {
-  height: 400px;
-  width: 100%;
-  background: #faefca;
+  height: 390px;
+  width: 290px;
+  border: 5px solid #efcafa;
+  position: relative;
+}
+
+/* general follow-box styles */
+
+.user-show-container > .col > .follow-box {
+
+  height: 390px;
+  width: 290px;
+  border: 5px solid #efcafa;
+  margin-top: 45px;
+  position: relative;
+}
+
+.user-show-container > .col > .follow-box > img {
+  width: 96px;
+  height: 96px;
+  border: 2px solid #efcafa;
+  margin: 13px 20px;
 }
 
 /* profile picture styles*/
@@ -44,9 +83,9 @@
 }
 
 .user-show-container > .col > .profile-picture > img {
-  width: 292px;
-  height: 292px;
-  border: 4px solid #efcafa;
+  width: 290px;
+  height: 290px;
+  border: 5px solid #efcafa;
 }
 
 .user-show-container > .col > .profile-picture > .user-total-votes {
@@ -58,4 +97,42 @@
   right: 0;
   bottom: 0;
 }
+
+/* follow button styles*/
+
+.user-show-container > .mid > button {
+  display: block;
+  height: 45px;
+  min-width: 100px;
+  margin: 45px auto;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 7px 20px 8px 20px;
+}
+
+.user-show-container > .mid > button:hover {
+  background: #caeffa;
+  color: #002;
+}
+
+.user-show-container > .mid > .follow-button {
+  background: none;
+  color: #efcafa;
+}
+
+.user-show-container > .mid > .unfollow-button {
+  background: #efcafa;
+  color: #002;
+}
+
+/* content-box sizing */
+
+.user-show-container > .col > .content-container {
+  width: 300px;
+  height: 300px;
+  background: #0c6;
+  margin-top: 45px;
+}
+
+
 
