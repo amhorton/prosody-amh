@@ -15,20 +15,10 @@ json.articles @user.articles do |article|
   json.extract!(article, :text, :title, :id)
   json.total_votes article.total_votes
   json.author_name article.author.name
-end
-
-unless @user.articles.empty?
-  json.random_article do
-    json.partial! 'api/articles/article', article: @user.articles.sample
-  end
+  json.url article.url
 end
 
 json.annotations @user.annotations do |annotation|
-  json.partial! 'api/annotations/annotation', annotation: annotation
-end
-
-unless @user.annotations.empty?
-  json.random_annotation do
-    json.partial! 'api/annotations/annotation', annotation: @user.annotations.sample
-  end
+  json.extract(annotation, :text)
+  json.url annotation.url
 end

@@ -27,6 +27,10 @@
   font-variant: small-caps;
 }
 
+.user-show-container > .col > .user-box:hover > .box-title {
+  color: #caeffa;
+}
+
 /* column sizing and spacing */
 
 .user-show-container > .col {
@@ -47,24 +51,29 @@
   margin: 0 0 0 45px;
 }
 
-/* general rand styles */
+/* user box styles */
 
-.user-show-container > .col > .rand {
+.user-show-container > .col > .user-box {
   height: 390px;
   width: 290px;
   border: 5px solid #efcafa;
   position: relative;
 }
 
+.user-show-container > .col > .user-box:hover {
+  border: 5px solid #caeffa;
+}
+
+/* general index styles */
+
+.user-show-container > .col > .index {
+  overflow-x: hidden;
+}
+
 /* general follow-box styles */
 
 .user-show-container > .col > .follow-box {
-
-  height: 390px;
-  width: 290px;
-  border: 5px solid #efcafa;
   margin-top: 45px;
-  position: relative;
 }
 
 .user-show-container > .col > .follow-box > img {
@@ -72,6 +81,10 @@
   height: 96px;
   border: 2px solid #efcafa;
   margin: 13px 20px;
+}
+
+.user-show-container > .col > .follow-box:hover > img {
+  border: 2px solid #caeffa;
 }
 
 /* profile picture styles*/
