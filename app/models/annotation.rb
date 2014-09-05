@@ -49,6 +49,12 @@ class Annotation < ActiveRecord::Base
     Article.find(self.article_id).text[(self.start)..(self.end)]
   end
 
+  def title
+    text_start = self.text[0..20]
+    text_start += "..." if self.text.length > 20
+    text_start
+  end
+
   def sorted_comments
     self.comments.sort_by{|comment| comment.created_at}.reverse
   end

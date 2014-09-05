@@ -1,21 +1,20 @@
-<% if (user.get('followers')) { %>
+ <% if (user.get('followers')) { %>
 
   <div class='user-show-container group'>
 
     <section class="user left col">
       <article class= "user-box index index-article">
 
+        <div class="text-container"><% if (user.get("articles")[0]) { %><%= user.get("articles")[0]['text'].replace("\r\n", "  ") %><% } else { %>Nothing to see here...<% } %></div>
+
 
         <big class="box-title">Articles</big>
       </article>
 
       <figure class="user-box follow-box followers group">
-        <img src="<%= user.escape('avatar') %>">
-        <img src="<%= user.escape('avatar') %>">
-        <img src="<%= user.escape('avatar') %>">
-        <img src="<%= user.escape('avatar') %>">
-        <img src="<%= user.escape('avatar') %>">
-        <img src="<%= user.escape('avatar') %>">
+        <% user.get("followers").forEach(function (follower) { %>
+            <img class="follower-image" src="<%= follower['avatar'] %>">
+        <% }); %>
 
         <big class="box-title">Followers</big>
       </figure>
@@ -34,23 +33,24 @@
         <button class="unfollow-button">Unfollow</button>
       <% } %>
 
-      <div class="content-container"></div>
+      <div class="content-container">
+        <p class="default-message">Click a box to see more information</p>
+      </div>
 
     </section>
 
     <section class="user right col">
       <article class="user-box index index-annotation">
 
+        <div class="text-container"><% if (user.get("annotations")[0]) { %><%= user.get("annotations")[0]['text'].replace("\r\n", "  ") %><% } else { %>Nothing to see here...<% } %></div>
+
         <big class="box-title">Annotations</big>
       </article>
 
       <figure class="user-box follow-box following group">
-        <img src="<%= user.escape('avatar') %>">
-        <img src="<%= user.escape('avatar') %>">
-        <img src="<%= user.escape('avatar') %>">
-        <img src="<%= user.escape('avatar') %>">
-        <img src="<%= user.escape('avatar') %>">
-        <img src="<%= user.escape('avatar') %>">
+        <% user.get("followed_users").forEach(function (followed) { %>
+            <img class="follower-image" src="<%= followed['avatar'] %>">
+        <% }); %>
 
         <big class="box-title">Following</big>
       </figure>
@@ -64,14 +64,7 @@
 
   <h4>Followers</h4>
 
-  <% user.get("followers").forEach(function (follower) { %>
-
-    <a href="/#users/<%= follower['id'] %>">
-      <img class="follower-image" src="<%= follower['avatar'] %>">
-    </a>
-
-
-  <% }); %> -->
+   -->
 
 
 <% } %>

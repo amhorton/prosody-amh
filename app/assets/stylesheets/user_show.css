@@ -36,8 +36,8 @@
 .user-show-container > .col {
   width: 300px;
   height: 50px;
-  background: #facaef;
   float: left;
+  margin-bottom: 100px;
 }
 
 .user-show-container > .left {
@@ -62,12 +62,25 @@
 
 .user-show-container > .col > .user-box:hover {
   border: 5px solid #caeffa;
+  cursor: pointer;
 }
 
 /* general index styles */
 
-.user-show-container > .col > .index {
-  overflow-x: hidden;
+.user-show-container > .col > .index > .text-container {
+  font-size: 80px;
+  overflow: hidden;
+  word-wrap: break-word;
+  letter-spacing: -10px;
+  height: 390px;
+  width: 290px;
+  line-height: 60px;
+  white-space: pre;
+  color: #efcafa;
+}
+
+.user-show-container > .col > .index:hover > .text-container {
+  color: #caeffa;
 }
 
 /* general follow-box styles */
@@ -77,14 +90,14 @@
 }
 
 .user-show-container > .col > .follow-box > img {
-  width: 96px;
-  height: 96px;
-  border: 2px solid #efcafa;
+  width: 90px;
+  height: 90px;
+  border: 5px solid #efcafa;
   margin: 13px 20px;
 }
 
 .user-show-container > .col > .follow-box:hover > img {
-  border: 2px solid #caeffa;
+  border: 5px solid #caeffa;
 }
 
 /* profile picture styles*/
@@ -105,10 +118,11 @@
   position: absolute;
   background: #efcafa;
   color: #002;
-  font-size: 20px;
-  padding: 7px;
-  right: 0;
-  bottom: 0;
+  font-size: 30px;
+  padding: 6px;
+  right: 1px;
+  bottom: 1px;
+  font-weight: bold;
 }
 
 /* follow button styles*/
@@ -138,14 +152,84 @@
   color: #002;
 }
 
-/* content-box sizing */
+/* content-box general styles */
 
 .user-show-container > .col > .content-container {
   width: 300px;
-  height: 300px;
-  background: #0c6;
   margin-top: 45px;
+  margin-bottom: 100px;
 }
+
+.user-show-container > .col > .content-container > .default-message {
+  margin: auto;
+  text-align: center;
+  font-size: 30px;
+}
+
+.content-container > div > .content-title {
+  color: #efcafa;
+  font-size: 60px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.content-container > div .content-list {
+  display: block;
+  list-style: none;
+  padding: 10px;
+  margin 0 auto
+}
+
+.content-container > div .content-list > li {
+  display: block;
+  padding: 20px;
+  width: 260px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.content-container > div .content-list > li > a {
+
+}
+
+/* Follow list styling */
+
+.content-container > div .content-list > li > a > img {
+  height: 90px;
+  width: 90px;
+  border: 5px solid #efcafa;
+  float: left;
+}
+
+.content-container > div .content-list > li > a:hover > img {
+  border: 5px solid #caeffa;
+}
+
+.content-container > div .content-list > li > a > .user-info {
+  float: right;
+  height: 90px;
+  text-align: center;
+  font-size: 30px;
+  color: #efcafa;
+  margin: 0;
+}
+
+.content-container > div .content-list > li > a:hover > .user-info {
+  color: #caeffa;
+}
+
+/* Index styling */
+
+.content-container > div .indexable-list > li > a {
+  font-size: 30px;
+  color: #efcafa;
+}
+
+.content-container > div .indexable-list > li > a:hover {
+  color: #caeffa;
+}
+
+
 
 
 

@@ -1,0 +1,9 @@
+<h4 class="content-title"><%= title %></h4>
+
+<ul class="content-list indexable-list">
+  <% indexables.forEach(function (indexable) { %>
+  <li>
+    <a href="<%= indexable.url %>"><%= indexable['title'] %></a>
+  </li>
+  <% }) %>
+</ul>

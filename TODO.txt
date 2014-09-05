@@ -13,13 +13,13 @@ THINGS TO DO:
 
 - Style the top nav bar
 
-- Style User show page
+
 
 - Style Author show page
 
 
 
-- Enable sign-in with Twitter
+
 
 
 
@@ -62,14 +62,22 @@ THINGS TO DO:
 - Don't hotlink your swan image
 
 
+
+
 ####BONUS####
 
-- BIG VIDEO ON THE SIGN IN PAGE
+- Big video on sign in page <<< #swag
 
-- Set up option to Tweet out annotations when you submit them.
+- Enable sign-in with Twitter <<< just a'ight
+
+  - Set up option to Tweet out annotations when you submit them. <<< meh
 
 - Enable nested comments
 
-- .txt file upload on new article form
+- .txt file upload on new article form <<< damn son
 
-- Have comment load up when you click from a notification
+- Have comment load up when you click from a notification <<< str8 icing
+
+- Get author images via Google Api << OHH GOD DAMN
+
+- Get author info via Wikipedia <<< JESUS CHRIST I'M DEAD

@@ -7,6 +7,9 @@ class Api::AuthorsController < ApplicationController
 
   def show
     @author = Author.find(params[:id])
+
+    @author.make_page
+
     render partial: "show", locals: {author: @author}
   end
 

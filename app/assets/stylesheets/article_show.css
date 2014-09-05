@@ -15,11 +15,11 @@ section.main {
 /* General vote styles */
 
 .vote {
-  color: #efcafa;
+  color: #caeffa;
 }
 
 .inactive {
-  color: #bbb;
+  color: #efcafa;
 }
 
 .inactive:hover {
