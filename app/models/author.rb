@@ -33,7 +33,7 @@ class Author < ActiveRecord::Base
   #Logic for talking to APIs and getting info for show page.
 
   def find_and_set_image
-    unless self.image
+    if image.url.index("missing")
       results = []
       search = Google::Search::Image.new do |search|
         search.query = self.name
@@ -53,7 +53,6 @@ class Author < ActiveRecord::Base
 
 
   def find_and_set_info
-    puts "Calling find-and-set-info"
     unless self.info
       content = Wikipedia.find(self.name).sanitized_content
       if content

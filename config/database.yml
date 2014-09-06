@@ -3,7 +3,7 @@ development:
   encoding: utf8
   database: prosody_development
   pool: 5
-  username: appacademy
+  username: aaronhorton
   password:
 
 test: &TEST
@@ -11,7 +11,7 @@ test: &TEST
   encoding: utf8
   database: prosody_test
   pool: 5
-  username: appacademy
+  username: aaronhorton
   password:
 
 production:
@@ -19,7 +19,7 @@ production:
   encoding: utf8
   database: prosody_production
   pool: 5
-  username: appacademy
+  username: aaronhorton   
   password:
 
 cucumber:

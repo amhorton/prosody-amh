@@ -1,3 +1,13 @@
-<h1><%= author.escape('name').replace(" ", "<br>") %></h1>
+<h1 class="author-name"><%= author.escape('first_name') %><br><%= author.escape('last_name') %></h1>
+<figure class="author-picture">
 <img src="<%= author.escape('image') %>">
-<p><%= author.get('info') %></p>
+</figure>
+
+<p class="author-info"><%= author.get('info') %></p>
+
+<ul class="author-article-list">
+<%= author.get('articles').forEach(function (article) { %>
+	<li>
+		<a href="/#articles/<%= article['id'] %>"><%= article['title'] %></a>
+	</li>
+<% }) %>
