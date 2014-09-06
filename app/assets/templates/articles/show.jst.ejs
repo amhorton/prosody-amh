@@ -6,7 +6,7 @@
       <header>
         <h2><%= article.get('title') %></h2>
         <h3>
-          By <a>
+          By <a href="/#/authors/<%= article.author().id %>">
             <%= article.author().get("name") %></a>, <%= article.get('year') %>
         </h3>
         <% if (Prosody.currentUserId) { %>

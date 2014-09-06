@@ -7,6 +7,7 @@
 section.main {
   display: block;
   width: 1050px;
+  min-height: 800px;
   height: 100%;
   margin: 0 auto;
   font-family: inherit;
@@ -59,7 +60,7 @@ div.article-text {
   width: 550px;
   padding: 20px 50px 0px 0px;
   float: left;
-  font-size: 24px;
+  font-size: 30px;
   margin: 0 auto;
 }
 
@@ -103,9 +104,9 @@ div.annotation-view {
   padding: 0 25px;
   position: relative;
   display: none;
-  border-left: 4px solid #bbb;
-
 }
+
+div.annotation-view
 
 div.annotation img {
   margin: 0 auto;

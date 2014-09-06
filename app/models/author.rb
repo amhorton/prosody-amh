@@ -42,11 +42,8 @@ class Author < ActiveRecord::Base
       search.find { |item| results << item }
       url = results.first.uri
 
-      if url
-        self.image = url
-      else
-        self.image = 'green_medium.png'
-      end
+      self.image = url if url
+        
       self.save!
     end
   end
@@ -62,6 +59,7 @@ class Author < ActiveRecord::Base
       else
         self.info = "We couldn't find info on this author."
       end
+      
       self.save!
     end
   end
@@ -71,6 +69,8 @@ class Author < ActiveRecord::Base
 
     self.find_and_set_image
   end
+  
+  #display methods
 
   def name
     self.first_name + " " + self.last_name

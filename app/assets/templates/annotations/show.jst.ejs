@@ -1,9 +1,10 @@
 <div class="annotation">
 
-  <h3><%= annotation.escape('snippet') %></h3>
-  <hr>
-  <%= annotation.escape('text') %>
-  --<a><small><%= annotation.user().escape("username") %></small></a>
+  <h3 class="annotation-title"><%= annotation.escape('snippet') %></h3>
+  <article class="annotation-text">
+    <%= annotation.escape('text') %>
+    --<a href="/#users/<%= annotation.user().id %>"><small><%= annotation.user().escape("username") %></small></a>
+  </article>
 
   <% if (annotation.get('image') && annotation.get('image').indexOf("missing") === -1) { %>
       <img src="<%= annotation.get('image') %>">

@@ -1,13 +1,23 @@
-<h1 class="author-name"><%= author.escape('first_name') %><br><%= author.escape('last_name') %></h1>
-<figure class="author-picture">
-<img src="<%= author.escape('image') %>">
-</figure>
+<% if (author.get('articles')) { %>
+	
+<section class="author-show-container group">
+	
 
-<p class="author-info"><%= author.get('info') %></p>
+	<figure class="author-picture">
+		<big class="author-name"><%= author.escape('first_name') %><br><%= author.escape('last_name') %></big>
+		<img src="<%= author.escape('image') %>">
+	</figure>
 
-<ul class="author-article-list">
-<%= author.get('articles').forEach(function (article) { %>
-	<li>
-		<a href="/#articles/<%= article['id'] %>"><%= article['title'] %></a>
-	</li>
-<% }) %>
+	<p class="author-info"><%= author.get('info') %></p>
+	
+	<h1>Articles on Prosody</h2>
+
+	<ul class="author-article-list">
+	<% author.get('articles').forEach(function (article) { %>
+		<li>
+			<a href="/#articles/<%= article['id'] %>"><%= article['title'] %></a>
+		</li>
+	<% }) %>	
+</section>	
+	
+<% } %>

@@ -25,7 +25,7 @@ body, h1, h2, h3, a, li, ul, nav, header, footer, div, section, figure, img, but
 
 body {
   background-color: #002;
-  color: #bbb;
+  color: #ddd;
   font-family: sans-serif;
 }
 
@@ -36,11 +36,11 @@ h1, h2, h3 {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: #efcafa;
   font-family: inherit;
 }
 
 a:hover {
   cursor: pointer;
-  color: #efcafa;
+  color: #caeffa;
 }
