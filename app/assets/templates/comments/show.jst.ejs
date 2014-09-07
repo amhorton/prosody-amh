@@ -1,10 +1,10 @@
-<big>
-  <strong>
-    <a><%= comment.user().escape("username") %></a>
-  </strong>
-</big>
-<br>
-<br>
-<%= comment.escape('text') %>
-<br>
-<hr>
+<section class="comment-show">
+	<big class="comment-username">
+	    <a><%= comment.user().escape("username") %></a>
+	</big>
+	<article class="comment-text">
+		<%= comment.escape('text') %>
+	</article>
+	<div class="vote-buttons"></div>
+</section>
+

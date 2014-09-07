@@ -4,6 +4,11 @@ class Api::CommentsController < ApplicationController
     @comments = Annotation.find(params[:annotation_id]).comments
     render :index
   end
+  
+  def show
+    @comment = Comment.find(params[:id])
+    render partial: "comment", locals: {comment: @comment}
+  end
 
   def create
     @comment = current_user.comments.new(comment_params)
@@ -16,10 +21,6 @@ class Api::CommentsController < ApplicationController
     else
       render json: @comment.errors.full_messages, status: 422
     end
-
-  end
-
-  def destroy
 
   end
 

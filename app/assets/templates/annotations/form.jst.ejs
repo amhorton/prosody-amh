@@ -1,34 +1,20 @@
-<style>
-.image-preview {
-  width: 350px;
-  height: 350px;
-}
-</style>
-
 <form class="new-annotation">
 
-  <h3><%= snippet %></h3>
+  <h3 class="annotation-snippet"><%= snippet %></h3>
 
-  <hr>
+  <textarea class="annotation-form-text" name="text"></textarea>
 
-  <label>
-    Your annotation:
-    <br>
-  <textarea name="text"></textarea>
-  </label>
+  <div class="image-upload-container">
+	  <label >
+	    Image:
+	    <input type="file" name="image" class="image-input">
+	  </label>
+  </div>
+  
+	<figure class="image-preview-container">
+    	<img class="image-preview">
+	</figure>
 
-  <br>
-
-  <label>
-    Image:
-    <input type="file" name="image" class="image-input">
-  </label>
-
-  <label>
-    Preview:
-    <img class="image-preview">
-  </label>
-
-  <button class="new-annotation">Annotate</button>
+  <button class="annotation-submit">Annotate</button>
 
 </form>

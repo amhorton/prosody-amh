@@ -15,8 +15,6 @@ THINGS TO DO:
 
 
 
-- Style Author show page
-
 
 
 
@@ -27,7 +25,7 @@ THINGS TO DO:
 
 - Style new annotation form
 
-- Style annotation show
+
 
 
 
@@ -64,13 +62,13 @@ THINGS TO DO:
 
 
 
+
+
 ####BONUS####
 
 - Big video on sign in page <<< #swag
 
-- Enable sign-in with Twitter <<< just a'ight
 
-  - Set up option to Tweet out annotations when you submit them. <<< meh
 
 - Enable nested comments
 
@@ -78,6 +76,6 @@ THINGS TO DO:
 
 - Have comment load up when you click from a notification <<< str8 icing
 
-- Get author images via Google Api << OHH GOD DAMN
 
-- Get author info via Wikipedia <<< JESUS CHRIST I'M DEAD
+
+
