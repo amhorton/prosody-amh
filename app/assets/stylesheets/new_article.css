@@ -1,3 +1,53 @@
 .article-form-container {
 	width: 1050px;
+	margin: 0 auto;
+}
+
+.article-form-container .input-label {
+	font-size: 50px;
+	text-align: center;
+}
+
+.article-field {
+	display: block;
+	margin: 0 auto;
+	width: 400px;
+	height: 27px;
+	background: none;
+	font-family: inherit;
+	color: inherit;
+	font-size: 20px;
+	border: 5px solid #efcafa;
+	text-align: center;
+}
+
+.article-field:focus {
+	outline-color: #efcafa;
+}
+
+.article-info-inputs {
+	
+}
+
+.author-info-inputs {
+	
+}
+
+.article-text-field {
+	width: 550px;
+	max-width: 550px;
+	min-height: 700px;
+	display: block;
+	margin: 0 auto;
+	padding: 20px 50px;
+	border: 5px solid #efcafa;
+	font-size: 24px;
+	background: none;
+	color: inherit;
+	font-family: inherit;
+}
+
+
+.article-text-field:focus {
+	outline-color: #efcafa;
 }

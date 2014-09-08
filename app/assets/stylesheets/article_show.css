@@ -71,6 +71,7 @@ div.article-text {
 .article-text > .annotation-link:hover {
   color: #caeffa;
 }
+
 div.article-text > .popup {
   display: none;
   position: absolute;
