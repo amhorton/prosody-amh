@@ -50,7 +50,7 @@ a:hover {
   height: 100%;
   position: fixed;
   z-index: -1;
-  opacity: .1;
+  opacity: .05;
 }
 
 .big-background > img {
