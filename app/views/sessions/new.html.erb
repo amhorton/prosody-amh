@@ -1,21 +1,26 @@
-<h2>Sign in</h2>
+<div class='user-container'>
+	
+	<h2 class="user-title">Welcome Back</h2>
 
-<form action="<%= session_url %>" method="POST">
+	<form action="<%= session_url %>" method="POST">
 
-  <%= auth_token %>
+	  <%= auth_token %>
 
-  <label>
-    Username
-    <input type="text" name="user[username]" value="<%= @user.username %>">
-  </label>
-  <label>
-    Password
-    <input type="password" name="user[password]">
-  </label>
+	  	<h4 class= "input-label">Username</h4>
+	    <input class="user-input" type="text" name="user[username]" value="<%= @user.username %>">
 
-  <button>Submit</button>
+	    <h4 class= "input-label">Password</h4>
+	    <input class="user-input" type="password" name="user[password]">
 
 
-</form>
+	  <button class="user-submit">Sign in</button>
 
-<a href="<%= new_user_url %>">Sign up</a>
+
+	</form>
+
+</div>
+
+
+
+
+

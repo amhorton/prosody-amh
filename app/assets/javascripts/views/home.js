@@ -17,14 +17,14 @@ Prosody.Views.Home = Backbone.View.extend({
 
     var $searchResults = $('.search-results');
 
-    var term = event.currentTarget.value
+    var term = event.currentTarget.value;
 
     var success = function (data) {
       var view = new Prosody.Views.SearchResults({
         results: data
       });
 
-      $searchResults.html(view.render().$el)
+      $searchResults.html(view.render().$el);
     }
 
     if (term.length > 3) {
@@ -34,6 +34,4 @@ Prosody.Views.Home = Backbone.View.extend({
     }
 
   }
-
-
 })

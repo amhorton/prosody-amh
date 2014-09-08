@@ -1,0 +1,52 @@
+.user-container {
+	width: 1050px;
+	margin: 100px auto;
+	text-align: center;
+}
+
+.user-title {
+	font-size: 90px;
+	margin: 0 auto;
+	margin-bottom: 45px;
+}
+
+.input-label {
+	font-size: 60px;
+	margin: 30px	 auto;
+	color: #efcafa;
+}
+
+.user-input {
+	width: 850px;
+	height: 45px;
+	padding: 5px;
+	border: 5px solid #efcafa;
+	background: none;
+	text-align: center;
+	font-size: 35px;
+	color: #efcafa;
+}
+
+.user-input:focus {
+	outline-color: #efcafa;
+}
+
+.user-submit {
+  display: block;
+  height: 45px;
+  min-width: 100px;
+  margin: 45px auto;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 7px 20px 8px 20px;
+	background: #efcafa;
+}
+
+.user-submit:hover {
+	background: #caeffa;
+}
+
+.prof-pic-input {
+	border: none;
+	font-size: 20px;
+}

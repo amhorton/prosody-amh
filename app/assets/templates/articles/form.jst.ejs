@@ -1,37 +1,36 @@
-<h2>New article</h2>
+<div class="article-form-container">
+	
+	<h2>Add to our library</h2>
 
-<form class="new-article">
+	<form class="new-article">
+		
+		<div class="article-info-inputs">
+			<h4 class= "input-label">Title</h4>
 
-  <label>
-    Title
-    <input type="text" name="article[title]">
-  </label>
+		  <input class="article-field" type="text" name="article[title]">
+		
+			<h4 class= "input-label">Year of publication</h4>
 
-  <label>
-    Year of publication
-    <input type="number" name="article[year]">
-  </label>
+		  <input class="article-field" type="number" name="article[year]">
+		</div>
+		
+		<div class="author-info-inputs">
+			<h4 class= "input-label">Author's first name'</h4>
 
-  <hr>
+		  <input class="article-field" type="text" name="author[first_name]">
+		
+			<h4 class= "input-label">Author's last name'</h4>
 
-  <label>
-    Author First Name
-    <input type="text" name="author[first_name]">
-  </label>
+		  <input class="article-field" type="text" name="author[last_name]">
+		</div>
+		
+		<h4 class= "input-label">Article text</h4>
 
-  <label>
-    Author Last Name
-    <input type="text" name="author[last_name]">
-  </label>
+	  <textarea class="article-text-field" name="article[text]"></textarea>
 
-  <hr>
 
-  <label>
-    Article text
-    <br>
-    <textarea name="article[text]"></textarea>
-  </label>
+	<button>Submit</button>
 
-  <button>Submit</button>
-
-</form>
+	</form>
+	
+</div>

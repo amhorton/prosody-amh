@@ -1,23 +1,23 @@
-<h2>Sign up</h2>
+<div class='user-container'>
+	
+	<h2 class="user-title">Sign up</h2>
 
-<form action="<%= users_url %>" enctype="multipart/form-data" method="POST">
+	<form action="<%= users_url %>" method="POST">
 
-  <%= auth_token %>
+	  <%= auth_token %>
 
-  <label>
-    Username
-    <input type="text" name="user[username]" value="<%= @user.username %>">
-  </label>
-  <label>
-    Password
-    <input type="password" name="user[password]">
-  </label>
-  <label>
-    Profile Picture
-    <input type="file" name="user[avatar]">
-  </label>
+	  	<h4 class= "input-label">Username</h4>
+	    <input class="user-input" type="text" name="user[username]" value="<%= @user.username %>">
 
-  <button>Submit</button>
-</form>
+	    <h4 class= "input-label">Password</h4>
+	    <input class="user-input" type="password" name="user[password]">
+			
+	    <h4 class= "input-label">Profile Picture</h4>
+	    <input class="user-input prof-pic-input" type="file" name="user[avatar]">
+			
+	  <button class="user-submit">Sign up</button>
 
-<a href="<%= new_session_url %>">Sign in</a>
+
+	</form>
+
+</div>

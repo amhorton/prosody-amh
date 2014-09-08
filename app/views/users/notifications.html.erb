@@ -1,13 +1,15 @@
-<h1>Your notifications</h1>
+<div class="notification-container">
+	
+	<h1 class="notification-title">Your notifications</h1>
 
-<% if current_user.events %>
-  <ul>
-    <% current_user.events.each do |event| %>
-      <li><a href="<%= event.url %>"><%= event.summary %></a></li>
-    <% end %>
-  </ul>
-<% else %>
-  <i>Nothing to see here...</i>
-<% end %>
-
-<a href="<%= home_url %>">Home</a>
+	<% if current_user.events %>
+	  <ul class="notification-list group">
+	    <% current_user.events.each do |event| %>
+	      <li><a href="<%= event.url %>"><%= event.summary %></a></li>
+	    <% end %>
+	  </ul>
+	<% else %>
+	  <i class="no-notification-message">Nothing to see here...</i>
+	<% end %>
+	
+</div>
