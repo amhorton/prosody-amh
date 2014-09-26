@@ -5,7 +5,7 @@
 	<% if current_user.events %>
 	  <ul class="notification-list group">
 	    <% current_user.events.each do |event| %>
-	      <li><a href="<%= event.url %>"><%= event.summary %></a></li>
+	      <li><a href="/<%= event.url %>"><%= event.summary %></a></li>
 	    <% end %>
 	  </ul>
 	<% else %>
