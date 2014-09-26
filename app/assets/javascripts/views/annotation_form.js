@@ -28,7 +28,7 @@ Prosody.Views.AnnotationForm = Backbone.View.extend({
 
     var attrs = $(event.target).serializeJSON();
     attrs["start"] = this.pos.start;
-    attrs["end"] = this.pos.end - 1;
+    attrs["end"] = this.pos.end;
 
     if (that.imageURL) {
       attrs['image'] = that.imageURL;
