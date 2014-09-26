@@ -17,7 +17,7 @@
       <div class="article-text">
 
         <% article.get('text').split("\n").forEach(function (line) { %>
-          <%= line.replace("\r", "") %>
+          <%= line.replace("\r", "").trim() %>
           <br>
         <% }) %>
 

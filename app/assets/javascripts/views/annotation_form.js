@@ -27,28 +27,28 @@ Prosody.Views.AnnotationForm = Backbone.View.extend({
     event.preventDefault();
 
     var attrs = $(event.target).serializeJSON();
-    attrs["start"] = this.pos.start
-    attrs["end"] = this.pos.end
+    attrs["start"] = this.pos.start;
+    attrs["end"] = this.pos.end - 1;
 
     if (that.imageURL) {
-      attrs['image'] = that.imageURL
+      attrs['image'] = that.imageURL;
     }
 
     this.collection.create(attrs, {
       success: function (data) {
-        that.collection.article.fetch()
+        that.collection.article.fetch();
       },
       wait: true
     });
   },
 
   fileSelect: function (event) {
-    var that = this
+    var that = this;
     var imageFile = event.currentTarget.files[0];
     var reader = new FileReader();
 
     reader.onloadend = function () {
-      that.imageURL = this.result
+      that.imageURL = this.result;
       that._updatePreview(this.result);
     }
 

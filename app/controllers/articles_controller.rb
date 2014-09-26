@@ -18,6 +18,12 @@ class ArticlesController < ApplicationController
       render :new
     end
   end
+  
+  def random
+    id = Article.all.sample.id
+    
+    redirect_to "/#articles/#{id}"
+  end
 
   private
 

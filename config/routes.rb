@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :votes
 
   get '/home', to: 'users#home', as: 'home'
+  get '/random', to: 'articles#random', as: 'random'
 
   get '/sign_out', to: 'sessions#destroy', as: 'sign_out'
 

@@ -16,7 +16,7 @@ json.followed_users @user.followed_users do |user|
   json.partial! 'api/users/user', user: user
 end
 
-json.articles @user.articles.reverse do |article|
+json.articles @user.articles do |article|
   json.extract!(article, :text, :title, :id)
   json.total_votes article.total_votes
   json.author_name article.author.name
@@ -28,5 +28,3 @@ json.annotations @user.annotations.reverse do |annotation|
   json.url annotation.url
   json.title annotation.title
 end
-
-json.google_test Google::Search::Image.new(query: 'william butler yeats', limit: 1)
